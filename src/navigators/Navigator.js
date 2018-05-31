@@ -1,9 +1,9 @@
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
-import HomeScreen from './screens/HomeScreen'
-import MessageScreen from './screens/MessageScreen'
-import ProfileScreen from './screens/profile/ProfileMainScreen'
-import LoginScreen from './screens/profile/LoginScreen'
+import HomeScreen from '../screens/HomeScreen'
+import MessageScreen from '../screens/MessageScreen'
+import ProfileScreen from '../screens/profile/ProfileMainScreen'
+import LoginScreen from '../screens/profile/LoginScreen'
 
 
 const ProfileNavigator = createStackNavigator({
