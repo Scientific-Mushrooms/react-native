@@ -12,6 +12,7 @@ import {
 import passwordIcon from '../../images/icons/password.png';
 import usernameIcon from '../../images/icons/username.png';
 
+
 export default class LoginScreen extends Component {
 
     static navigationOptions = {
@@ -43,6 +44,11 @@ export default class LoginScreen extends Component {
         } else {
             alert('fail')
         }
+    };
+
+    signup = () => {
+
+        this.props.navigation.navigate('Signup');
     };
     
     render() {
@@ -79,14 +85,15 @@ export default class LoginScreen extends Component {
                 <TouchableOpacity
                     onPress={this.login}
                     style={styles.button}>
-                    <Text style={styles.btText}>登录</Text>
+                    <Text style={styles.btText}>LOG IN</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigate('Home', { user: 'Lucy' })}>
-                    <Text style={styles.btText}>注册</Text>
+                    onPress={this.signup}>
+                    <Text style={styles.btText}>SIGN UP</Text>
                 </TouchableOpacity>
+
             </View>
         );
     }
