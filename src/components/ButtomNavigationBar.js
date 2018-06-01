@@ -5,39 +5,40 @@ import { Button } from 'react-native-elements';
 
 
 export default class HomeScreen extends Component {
+
+    homeIcon = { name: 'home', size: 30, color: 'white'};
+    homeIcon = { name: 'home', size: 30, color: 'white'};
+    messageIcon = { name: 'message', size: 30, color: 'white'};
+    profileIcon = { name: 'account-circle', size: 30, color: 'white'};
     render() {
       return (
           <View style={styles.barContainer}>
                 <View style={styles.flexContainer}>
-                    <Button 
-                        icon={{ name: 'home', size: 15, color: 'white', top: '10%' }}
-                        raised
-                        title='11'
-                        onPress={() => this.props.navigation.navigate('Profile')}
-                        buttonStyle={styles.homeButton}
-                    />
 
-                    <Button 
-                        icon={{ name: 'add-alarm', size: 15, color: 'white' }}
-                        title='22'
-                        onPress={() => this.props.navigation.navigate('Profile')}
-                        buttonStyle={styles.homeButton}
-                    />
+                <Button
+                    icon={this.homeIcon}
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                    containerViewStyle={styles.button}
+                />
 
-                    <Button 
-                        icon={{ name: 'add-alarm', size: 15, color: 'white' }}
-                        title='33'
-                        onPress={() => this.props.navigation.navigate('Profile')}
-                        buttonStyle={styles.homeButton}
-                    />
+                <Button
+                    icon={this.homeIcon}
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                    containerViewStyle={styles.button}
+                />
 
-                    <Button 
-                        icon={{ name: 'add-alarm', size: 15, color: 'white' }}
-                        title='44'
-                        onPress={() => this.props.navigation.navigate('Profile')}
-                        buttonStyle={styles.homeButton}
-                    />
-  
+                <Button
+                    icon={this.messageIcon}
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                    containerViewStyle={styles.button}
+                />
+
+                <Button
+                    icon={this.profileIcon}
+                    onPress={() => this.props.navigation.navigate('Profile')}
+                    containerViewStyle={styles.button}
+                />
+                   
             </View>
         </View>
       );
@@ -51,7 +52,6 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
 
     barContainer: {
-        backgroundColor: 'green',
         width: '100%',
         height: '8%',
     },
@@ -59,18 +59,14 @@ const styles = StyleSheet.create({
     flexContainer: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
-        height: '100%',
-        width: '100%',
     },
 
-    homeButton: {
+    button: {
         height: '100%',
+        width: '25%',
+        backgroundColor: 'pink',
         marginLeft: 0,
         marginRight: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
-
-    }
+    },
     
   });
