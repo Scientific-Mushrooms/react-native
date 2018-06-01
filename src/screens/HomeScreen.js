@@ -4,12 +4,28 @@ import BottomNavigationBar from '../components/ButtomNavigationBar'
 
 
 export default class HomeScreen extends Component {
+
+    static navigationOptions = {
+        header: null,
+    };
+    
     render() {
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end' }}>
+            <View style={styles.mainContainer}>
                 <BottomNavigationBar/>
             </View>
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+
+    mainContainer: { 
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+});
 

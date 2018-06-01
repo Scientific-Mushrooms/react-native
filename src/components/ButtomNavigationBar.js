@@ -12,15 +12,15 @@ class ButtonNavigationBar extends Component {
     profileIcon = { name: 'account-circle', size: 30, color: 'white'};
 
     homeOnPress = () => {
-        this.props.navigation.navigate('Profile');
+        this.props.navigation.navigate('LOL');
     }
 
-    homeOnPress = () => {
+    unknownOnPress = () => {
         this.props.navigation.navigate('Profile');
     }
 
     messageOnPress = () => {
-        this.props.navigation.navigate('Profile');
+        this.props.navigation.navigate('Message');
     }
 
     profileOnPress = () => {
@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
     barContainer: {
         width: '100%',
         height: '8%',
+        position: 'absolute',
+        bottom: 0,
     },
 
     flexContainer: {
@@ -82,6 +84,6 @@ const styles = StyleSheet.create({
         marginRight: 0,
     },
     
-  });
+});
 
   export default withNavigation(ButtonNavigationBar);
