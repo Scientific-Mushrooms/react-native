@@ -12,7 +12,7 @@ class ButtonNavigationBar extends Component {
     profileIcon = { name: 'account-circle', size: 30, color: 'white'};
 
     homeOnPress = () => {
-        this.props.navigation.navigate('LOL');
+        this.props.navigation.navigate('HomePage');
     }
 
     unknownOnPress = () => {

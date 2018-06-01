@@ -20,7 +20,7 @@ const AppNavigator = createSwitchNavigator(
         Home: HomeScreen,
         Message: MessageScreen,
         Profile: ProfileNavigator,
-        LOL: HomeScreen
+        HomePage: HomeScreen
     }, 
     {
        
