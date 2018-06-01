@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import {  View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
-
-export default class HomeScreen extends Component {
+class ButtonNavigationBar extends Component {
 
     homeIcon = { name: 'home', size: 30, color: 'white'};
     homeIcon = { name: 'home', size: 30, color: 'white'};
     messageIcon = { name: 'message', size: 30, color: 'white'};
     profileIcon = { name: 'account-circle', size: 30, color: 'white'};
+
+    homeOnPress = () => {
+        this.props.navigation.navigate('Profile');
+    }
+
+    homeOnPress = () => {
+        this.props.navigation.navigate('Profile');
+    }
+
+    messageOnPress = () => {
+        this.props.navigation.navigate('Profile');
+    }
+
+    profileOnPress = () => {
+        this.props.navigation.navigate('Profile');
+    }
+
     render() {
       return (
           <View style={styles.barContainer}>
@@ -17,25 +34,25 @@ export default class HomeScreen extends Component {
 
                 <Button
                     icon={this.homeIcon}
-                    onPress={() => this.props.navigation.navigate('Profile')}
+                    onPress={this.homeOnPress}
                     containerViewStyle={styles.button}
                 />
 
                 <Button
                     icon={this.homeIcon}
-                    onPress={() => this.props.navigation.navigate('Profile')}
+                    onPress={this.homeOnPress}
                     containerViewStyle={styles.button}
                 />
 
                 <Button
                     icon={this.messageIcon}
-                    onPress={() => this.props.navigation.navigate('Profile')}
+                    onPress={this.messageOnPress}
                     containerViewStyle={styles.button}
                 />
 
                 <Button
                     icon={this.profileIcon}
-                    onPress={() => this.props.navigation.navigate('Profile')}
+                    onPress={this.profileOnPress}
                     containerViewStyle={styles.button}
                 />
                    
@@ -44,10 +61,6 @@ export default class HomeScreen extends Component {
       );
     }
 }
-
-
-
-
 
 const styles = StyleSheet.create({
 
@@ -70,3 +83,5 @@ const styles = StyleSheet.create({
     },
     
   });
+
+  export default withNavigation(ButtonNavigationBar);

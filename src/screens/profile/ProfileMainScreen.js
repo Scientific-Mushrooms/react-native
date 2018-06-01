@@ -9,6 +9,7 @@ import {
     AsyncStorage,
     Button,
 } from 'react-native'
+import BottomNavigationBar from '../../components/ButtomNavigationBar'
 
 
 export default class ProfileMainScreen extends Component {
@@ -29,6 +30,7 @@ export default class ProfileMainScreen extends Component {
                     title="Go to login"
                     onPress={() => {this.props.navigation.navigate('Login')}}
                 />
+                <BottomNavigationBar/>
             </View>
         );
     }

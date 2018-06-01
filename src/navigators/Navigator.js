@@ -1,4 +1,5 @@
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 
 import HomeScreen from '../screens/HomeScreen'
 import MessageScreen from '../screens/MessageScreen'
@@ -14,20 +15,31 @@ const ProfileNavigator = createStackNavigator({
 });
 
 
-const AppNavigator = createBottomTabNavigator(
+// const AppNavigator = createBottomTabNavigator(
+//     {
+//         Home: HomeScreen,
+//         Message: MessageScreen,
+//         Profile: ProfileNavigator,
+//     }, 
+//     {
+//         activeTintColor: '#e91e63',
+//         labelStyle: {
+//             fontSize: 12,
+//         },
+//         style: {
+//             backgroundColor: 'blue',
+//         },
+//     }
+// );
+
+const AppNavigator = createSwitchNavigator(
     {
         Home: HomeScreen,
         Message: MessageScreen,
         Profile: ProfileNavigator,
     }, 
     {
-        activeTintColor: '#e91e63',
-        labelStyle: {
-            fontSize: 12,
-        },
-        style: {
-            backgroundColor: 'blue',
-        },
+       
     }
 );
 

@@ -7,18 +7,9 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end' }}>
-                <BottomNavigationBar styles={styles.barContainer}/>
+                <BottomNavigationBar/>
             </View>
         );
     }
 }
 
-
-const styles = StyleSheet.create({
-
-    barContainer: {
-
-    },
-
-  
-});
