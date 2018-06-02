@@ -4,8 +4,6 @@ import BottomNavigationBar from '../components/ButtomNavigationBar'
 
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import { connect } from 'react-redux';
-import { increase, decrease, reset } from '../redux/actions/actionsTypes';
 
 import Home from './Home';
 export default class HomeScreen extends Component {
@@ -23,9 +21,9 @@ export default class HomeScreen extends Component {
                 <Text>This is home page</Text>
 
                 <BottomNavigationBar/>
-                <Provider store={store}>
+
                 <Home/>
-                </Provider>
+                
             </View>
             
         );

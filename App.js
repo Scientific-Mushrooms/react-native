@@ -7,9 +7,15 @@ import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 YellowBox.ignoreWarnings(['Class RCTCxxModule']);
 
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 
 export default class App extends Component {
     render() {
-    return (<AppNavigator />);
+    return (
+        <Provider store={store}>
+        <AppNavigator />
+        </Provider>
+    );
     }
 }
