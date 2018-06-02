@@ -18,16 +18,19 @@ export default class ProfileMainScreen extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
+
+                <View style={styles.headerContainer}>
+                    <View style={styles.headerPadding}/>
+                    <View style={styles.headerFunction}>
+                        <Icon name='settings' />
+                    </View>
+                </View>
+                
                 <ScrollView 
                     style={styles.scrollContainer} 
                     showsVerticalScrollIndicator={false}>
 
-                    <View style={styles.headerContainer}>
-                        <View style={styles.headerPadding}/>
-                        <View style={styles.headerFunction}>
-                            <Icon name='settings' />
-                        </View>
-                    </View>
+                    
 
                     <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
                         <Avatar

@@ -10,6 +10,6 @@ YellowBox.ignoreWarnings(['Class RCTCxxModule']);
 
 export default class App extends Component {
     render() {
-        return <AppNavigator />;
+    return (<AppNavigator />);
     }
 }
