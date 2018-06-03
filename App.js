@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { AppNavigator } from './src/navigators/Navigator'
 
 import { YellowBox } from 'react-native';
@@ -14,7 +14,7 @@ export default class App extends Component {
     render() {
     return (
         <Provider store={store}>
-        <AppNavigator />
+            <AppNavigator />
         </Provider>
     );
     }

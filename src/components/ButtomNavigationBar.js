@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
-class ButtonNavigationBar extends Component {
+class BottomNavigationBar extends Component {
 
     homeIcon = { name: 'home', size: 30, color: 'white'};
     homeIcon = { name: 'home', size: 30, color: 'white'};
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
     
 });
 
-  export default withNavigation(ButtonNavigationBar);
+export default withNavigation(BottomNavigationBar);
