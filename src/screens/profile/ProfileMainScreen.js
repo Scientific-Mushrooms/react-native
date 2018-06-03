@@ -13,7 +13,7 @@ export default class ProfileMainScreen extends Component {
     };
 
     toLoginPage = () => {
-        this.props.navigation.navigate('Login')
+        this.props.navigation.navigate('Login', { transition: 'forVertical' })
     }
 
     render() {
@@ -55,7 +55,6 @@ export default class ProfileMainScreen extends Component {
                         <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
                         <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
                     </View>
-                    
                 </ScrollView>
 
                 <BottomNavigationBar/>
@@ -69,7 +68,7 @@ const styles = StyleSheet.create({
 
     mainContainer: { 
         flex: 1,
-        backgroundColor: '#eff0f0'
+        backgroundColor: '#eff0f0',
     },
 
     scrollContainer: {

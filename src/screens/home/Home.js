@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
-import { increase, decrease, reset } from '../redux/actions/action';
+import { increase, decrease, reset } from '../../redux/actions/action';
 
 class Home extends Component {
     _onPressReset() {
