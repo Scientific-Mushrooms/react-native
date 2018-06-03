@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
-import BottomNavigationBar from '../../components/ButtomNavigationBar'
-import { Button, Avatar, Icon } from 'react-native-elements'
+import BottomNavigationBar from '../../components/BottomNavigationBar';
+import IconButton from '../../components/IconButton';
+import { Avatar, Icon } from 'react-native-elements';
 
 
 export default class ProfileMainScreen extends Component {
@@ -30,8 +31,6 @@ export default class ProfileMainScreen extends Component {
                     style={styles.scrollContainer} 
                     showsVerticalScrollIndicator={false}>
 
-                    
-
                     <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
                         <Avatar
                             large
@@ -44,37 +43,21 @@ export default class ProfileMainScreen extends Component {
                     </TouchableOpacity>
 
                     <View style={styles.buttonGroupA}>
-                        <Button 
-                            leftIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            rightIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            containerViewStyle={styles.button}
-                            title="Go to login"
-                            onPress={this.toLoginPage}
-                        />
-                        <Button 
-                            leftIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            rightIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            containerViewStyle={styles.button}
-                            title="Go to login"
-                            onPress={this.toLoginPage}
-                        />
-                        <Button 
-                            leftIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            rightIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            containerViewStyle={styles.button}
-                            title="Go to login"
-                            onPress={this.toLoginPage}
-                        />
-                        <Button 
-                            leftIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            rightIcon={{name: 'squirrel', type: 'octicon', buttonStyle: styles.someButtonStyle }}
-                            containerViewStyle={styles.button}
-                            title="Go to login"
-                            onPress={this.toLoginPage}
-                        />
+                        <IconButton title='Setting' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='Message' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
                     </View>
 
+                    <View style={styles.buttonGroupA}>
+                        <IconButton title='Setting' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='Message' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
+                        <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
+                    </View>
+                    
                 </ScrollView>
+
                 <BottomNavigationBar/>
             </View>
         );
@@ -123,25 +106,8 @@ const styles = StyleSheet.create({
         marginRight: 20,
     },
 
-    button: {
-        marginLeft: 0,
-        marginRight: 0,
-        borderWidth: 0.5,
-        borderColor: '#eff0f0'
-    },
-
     buttonGroupA: {
         marginTop: 10
     },
-
-    item: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 30,
-        borderColor: '#2a4944',
-        borderWidth: 1,
-        backgroundColor: '#d2f7f1'
-     },
 
 });
