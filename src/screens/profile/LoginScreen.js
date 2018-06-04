@@ -17,13 +17,7 @@ import { login, logout } from '../../redux/actions/action'
 class LoginScreen extends Component {
 
     static navigationOptions = {
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        header: null,
     };
     
     username = '';

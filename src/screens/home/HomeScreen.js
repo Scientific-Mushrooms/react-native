@@ -6,12 +6,16 @@ import { Provider } from 'react-redux';
 import store from '../../redux/store';
 
 import Home from './Home';
-
+import IconInput from 'IconInput'
 
 export default class HomeScreen extends Component {
-
+    username = ''
     static navigationOptions = {
         header: null,
+    };
+
+    onUsernameChanged = (newUsername) => {
+        this.username = newUsername;
     };
 
     render() {
@@ -19,7 +23,8 @@ export default class HomeScreen extends Component {
             <View style={styles.mainContainer}>
 
                 <Text>This is home page</Text>
-
+                <Text>{this.username}</Text>
+                <IconInput icon='settings' placeholder='mmmmmmm' onChangeText={this.onUsernameChanged}/>
                 <Home/>
 
                 <BottomNavigationBar/>
