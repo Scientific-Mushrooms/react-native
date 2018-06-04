@@ -6,8 +6,9 @@ import {
     Image,
     TouchableOpacity,
     TextInput,
-    ToastAndroid,
-  } from 'react-native';
+    ToastAndroid, } from 'react-native';
+
+import IconInput from 'IconInput';
 
 import passwordIcon from '../../images/icons/password.png';
 import usernameIcon from '../../images/icons/username.png';
@@ -24,12 +25,10 @@ class LoginScreen extends Component {
     password = '';
 
     onUsernameChanged = (newUsername) => {
-        console.log(newUsername);
         this.username = newUsername;
     };
     
     onPasswordChanged = (newPassword) => {
-        console.log(newPassword);
         this.password = newPassword;
     };
     
@@ -51,32 +50,18 @@ class LoginScreen extends Component {
         return (
             <View style={styles.container}>
 
-                <View style={styles.inputBox}>
-                    <Image
-                        style={styles.img}
-                        source={usernameIcon}
-                        />
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onUsernameChanged}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'username'}
-                        underlineColorAndroid={'transparent'}
-                        />
-                </View>
-
-                <View style={styles.inputBox}>
-                    <Image
-                        source={passwordIcon}
-                        style={styles.img}/>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onPasswordChanged}
-                        secureTextEntry={true}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'password'}
-                        underlineColorAndroid={'transparent'}/>
-                </View>
+                <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
+                <IconInput 
+                    icon='settings' 
+                    placeholder='password' 
+                    onChangeText={this.onPasswordChanged} 
+                    secureTextEntry={true}
+                    />
+                
 
                 <TouchableOpacity
                     onPress={this.login}
@@ -98,31 +83,14 @@ class LoginScreen extends Component {
 
 
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#fbfcfd',
     },
-    img: {
-        width: 30,
-        height: 30,
-    },
-    input: {
-        width: 200,
-        height: 40,
-        color: '#fff',
-    },
-    inputBox: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 280,
-        height: 50,
-        borderRadius: 8,
-        backgroundColor: '#66f',
-        marginBottom: 8,
-    },
+
     button: {
         height: 50,
         width: 280,
@@ -132,10 +100,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#66f',    
         marginBottom: 8,
     },
+
     btText: {
         color: '#fff',
     }
-  });
+
+});
   
 const mapStateToProps = state => ({
     user: state.user.name,

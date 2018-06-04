@@ -7,6 +7,7 @@ import store from '../../redux/store';
 
 import Home from './Home';
 import IconInput from 'IconInput'
+import IconButton from 'IconButton'
 
 export default class HomeScreen extends Component {
     username = ''
@@ -18,6 +19,10 @@ export default class HomeScreen extends Component {
         this.username = newUsername;
     };
 
+    click = () => {
+        alert(this.username);
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -26,7 +31,7 @@ export default class HomeScreen extends Component {
                 <Text>{this.username}</Text>
                 <IconInput icon='settings' placeholder='mmmmmmm' onChangeText={this.onUsernameChanged}/>
                 <Home/>
-
+                <IconButton title='test' onPress={this.click}/>
                 <BottomNavigationBar/>
             </View>
         );
