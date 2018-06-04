@@ -1,13 +1,9 @@
-const increase = () => ({ type: 'INCREASE' });
-const decrease = () => ({ type: 'DECREASE' });
-const reset = () => ({ type: 'RESET' });
-const login = (user) => ({ type: 'LOGIN', user: 'user' });
+export const increase = () => ({ type: 'INCREASE' });
 
+export const decrease = () => ({ type: 'DECREASE' });
 
+export const reset = () => ({ type: 'RESET' });
 
-export {
-    increase,
-    decrease,
-    reset,
-    login,
-}
+export const login = (name) => ({ type: 'LOGIN', name: name });
+
+export const logout = () => ({ type: 'LOGOUT'});

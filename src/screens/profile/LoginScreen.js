@@ -11,9 +11,10 @@ import {
 
 import passwordIcon from '../../images/icons/password.png';
 import usernameIcon from '../../images/icons/username.png';
+import { connect } from 'react-redux';
+import { login, logout } from '../../redux/actions/action'
 
-
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
 
     static navigationOptions = {
         headerStyle: {
@@ -40,6 +41,7 @@ export default class LoginScreen extends Component {
     
     login = () => {
         if (this.username == 'admin' && this.password == '123') {
+            this.props.dispatch(login(this.username));
             this.props.navigation.navigate('Home');
         } else {
             alert('fail')
@@ -47,7 +49,7 @@ export default class LoginScreen extends Component {
     };
 
     signup = () => {
-
+        this.props.dispatch(logout());
         this.props.navigation.navigate('Signup');
     };
     
@@ -141,3 +143,9 @@ const styles = StyleSheet.create({
     }
   });
   
+const mapStateToProps = state => ({
+    user: state.user.name,
+    counter: state.counter,
+})
+
+export default connect(mapStateToProps)(LoginScreen);
