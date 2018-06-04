@@ -6,9 +6,10 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
-import { increase, decrease, reset } from '../../redux/actions/action';
+import { increase, decrease, reset, login } from '../../redux/actions/action';
 
 class Home extends Component {
+
     _onPressReset() {
         this.props.dispatch(reset());
     }
@@ -19,6 +20,10 @@ class Home extends Component {
 
     _onPressDec() {
         this.props.dispatch(decrease());
+    }
+
+    _login() {
+        this.props.dispatch(login());
     }
 
     render() {
@@ -37,6 +42,14 @@ class Home extends Component {
                 <TouchableOpacity style={styles.stop} onPress={()=>this._onPressDec()}>
                 <Text>减1</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
+                <Text>33333333333333333</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
+                <Text>{this.props.user}</Text>
+                </TouchableOpacity>
                 
         </View>
         );
@@ -54,7 +67,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    counter: state.counter
+    user: state.user.name,
+    counter: state.counter,
 })
 
 export default connect(mapStateToProps)(Home);

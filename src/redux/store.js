@@ -1,18 +1,27 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+
 import createLogger from 'redux-logger';
-import rootReducer from './reducers/reducer';
+import rootReducer from './reducer';
 
 
-const configureStore = preloadedState => {
-    return createStore (
-        rootReducer,
-        preloadedState,
-        compose (
-            applyMiddleware(createLogger)
-        )
-    );
+const preloadedState = {
+
+    counter: {
+        count: 10,
+        factor: 1
+    },
+
+    user : {
+        name: '111111',
+    }
 }
 
-const store = configureStore();
+const store = createStore (
+    rootReducer,
+    preloadedState,
+    compose (
+        applyMiddleware(createLogger)
+    )
+);
 
 export default store;

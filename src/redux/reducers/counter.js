@@ -1,12 +1,5 @@
-import { combineReducers } from 'redux';
-
-
-const defaultState = {
-    count: 5,
-    factor: 1
-}
-
-const counter = (state = defaultState, action) => {
+export default counter = (state = {}, action) => {
+    
     switch (action.type) {
         case 'INCREASE':
             return { ...state, count: state.count + state.factor };
@@ -18,8 +11,3 @@ const counter = (state = defaultState, action) => {
             return state;
     }
 }
-
-
-export default combineReducers({
-    counter
-});
