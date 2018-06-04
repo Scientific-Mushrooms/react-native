@@ -14,7 +14,7 @@ export default class iconInput extends Component {
 
     render() {
         return (
-            <View style={styles.container} onPress={this.props.onPress}>
+            <View style={styles.container}>
                 <View style={styles.middleContainer}>
                     <Icon name={this.props.icon} containerStyle={styles.icon} size={20} color='#8f8e94' />
                     <TextInput
@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     input: {
         fontSize: 20,
         color: '#323233',
+        height: '100%',
+        width: '100%',
     },
 
 });

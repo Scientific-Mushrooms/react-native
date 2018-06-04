@@ -1,34 +1,23 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import {  View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import BottomNavigationBar from 'BottomNavigationBar';
 import IconButton from 'IconButton';
-import { Avatar, Icon } from 'react-native-elements';
+
+import { Icon } from 'react-native-elements';
+import InfoBar from 'InfoBar';
+
+import { connect } from 'react-redux';
 
 
-export default class ProfileMainScreen extends Component {
+class ProfileMainScreen extends Component {
 
     static navigationOptions = {
         header: null,
     };
 
     toLoginPage = () => {
-        this.props.navigation.navigate('Login', { transition: 'forVertical' })
-    }
-
-    avatar = () => {
-        return (
-            <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
-                        <Avatar
-                            large
-                            rounded
-                            source={require("../../images/avatars/test.png")}
-                            activeOpacity={0.7}
-                        />
-                        <Text style={styles.name}>233333333333</Text>
-                        <Icon name='chevron-right' style={styles.icon} size={30}/>
-            </TouchableOpacity>
-        );
+        this.props.navigation.navigate('Login')
     }
 
     render() {
@@ -42,21 +31,9 @@ export default class ProfileMainScreen extends Component {
                     </View>
                 </View>
                 
-                <ScrollView 
-                    style={styles.scrollContainer} 
-                    showsVerticalScrollIndicator={false}>
+                <ScrollView  style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
-                    {/* <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
-                        <Avatar
-                            large
-                            rounded
-                            source={require("../../images/avatars/test.png")}
-                            activeOpacity={0.7}
-                        />
-                        <Text style={styles.name}>233333333333</Text>
-                        <Icon name='chevron-right' style={styles.icon} size={30}/>
-                    </TouchableOpacity> */}
-                    {this.avatar()}
+                    <InfoBar name={this.props.name}/>
 
                     <View style={styles.buttonGroupA}>
                         <IconButton title='Setting' onPress={this.toLoginPage} icon='settings'/>
@@ -71,6 +48,7 @@ export default class ProfileMainScreen extends Component {
                         <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
                         <IconButton title='233333' onPress={this.toLoginPage} icon='settings'/>
                     </View>
+
                 </ScrollView>
 
                 <BottomNavigationBar/>
@@ -126,3 +104,9 @@ const styles = StyleSheet.create({
     },
 
 });
+
+const mapStateToProps = state => ({
+    name: state.user.name,
+})
+
+export default connect(mapStateToProps)(ProfileMainScreen);

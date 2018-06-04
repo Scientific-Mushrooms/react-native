@@ -11,7 +11,8 @@ import IconButton from 'IconButton'
 import InfoBar from 'InfoBar';
 
 export default class HomeScreen extends Component {
-    username = ''
+    username = '';
+    password = '';
     static navigationOptions = {
         header: null,
     };
@@ -28,8 +29,19 @@ export default class HomeScreen extends Component {
         return (
             <View style={styles.mainContainer}>
 
+            <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
+
+                     <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
                 <Text>This is home page</Text>
-                <InfoBar/>
+                <InfoBar name='admin'/>
                 <Text>{this.username}</Text>
                 <Home/>
                 <IconButton title='test' onPress={this.click}/>

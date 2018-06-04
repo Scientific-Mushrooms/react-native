@@ -6,25 +6,52 @@
 
 
 import React, { Component } from 'react';
-import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { Avatar, Icon } from 'react-native-elements';
+import { View, Image, Text, TouchableOpacity, StyleSheet, } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
-export default class InfoBar extends Component {
+class InfoBar extends Component {
+
+    toLoginPage = () => {
+        this.props.navigation.navigate('Login')
+        
+    }
+
     render() {
-        return (
-            <View>
-                <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
-                        <Avatar
-                            large
-                            rounded
-                            source={require('../images/avatars/test.png')}
-                            activeOpacity={0.7}
-                        />
-                        <Text style={styles.name}>233333333333</Text>
-                        <Icon name='chevron-right' style={styles.icon} size={30}/>
-                </TouchableOpacity>
-            </View>
-        );
+
+        if (this.props.name === null) {
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.introContainer}>xxxxxxxxxxxxxxxxx</Text>
+                    <TouchableOpacity style={styles.button} onPress={this.toLoginPage}>
+                        <Text>LOG IN</Text>
+                    </TouchableOpacity>
+                </View>
+            );
+        } else {
+            return (
+                <View style={styles.container}>
+                
+                    <TouchableOpacity style={styles.topContainer} onPress={this.toLoginPage}> 
+                        <Image source={require('../images/avatars/test.png')} style={styles.avatar}/>
+                        <Text style={styles.name}>{this.props.name}</Text>
+                        <Icon name='chevron-right' style={styles.arrow} size={30}/>
+                    </TouchableOpacity>
+    
+                    <View style={styles.bottomContainer}>
+                        <View style={styles.infoContainer}>
+                        </View>
+                        <View style={styles.infoContainer}>
+                        </View>
+                        <View style={styles.infoContainer}>
+                        </View>
+                        <View style={styles.infoContainer}>
+                        </View>
+                    </View>
+
+                </View>
+            );
+        }
     }
 }
 
@@ -32,30 +59,63 @@ export default class InfoBar extends Component {
 
 const styles = StyleSheet.create({
 
-    mainContainer: { 
-        flex: 1,
-        backgroundColor: '#eff0f0',
+    container: { 
+        width: '100%',
+        backgroundColor: '#fbfcfd',
+        height: 140,
+        alignItems: 'center',
     },
 
-    headerPadding: {
-        height: 20,
-    },
-
-    headerFunction: {
-        height: 40,
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
-
-    userContainer: {
+    topContainer: {
         width: '100%',
         height: 90,
         backgroundColor: '#fbfcfd',
         alignItems: 'center',
-        justifyContent: 'center',
         flexDirection: 'row',
     },
 
+    avatar: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        marginLeft: 15,
+        marginRight: 15,
+    },
 
+    arrow: {
+        position: 'absolute',
+        right: 0,
+    },
+
+    bottomContainer: {
+        height: 50,
+        width: '100%',
+        backgroundColor: "black",
+        flexDirection: 'row',
+    },
+
+    infoContainer: {
+        width: '25%',
+        height: '100%',
+    },
+
+    button: {
+        height: 40,
+        width: '95%',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: 'black',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    introContainer: {
+        height: 70,
+        width: '80%',
+        fontSize: 30
+    }
 
 });
+
+
+export default withNavigation(InfoBar);

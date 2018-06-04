@@ -54,13 +54,13 @@ class LoginScreen extends Component {
                     placeholder='username' 
                     onChangeText={this.onUsernameChanged}
                     />
+                    
                 <IconInput 
                     icon='settings' 
                     placeholder='password' 
                     onChangeText={this.onPasswordChanged} 
                     secureTextEntry={true}
                     />
-                
 
                 <TouchableOpacity
                     onPress={this.login}
