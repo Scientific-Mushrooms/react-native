@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  View, Text, StyleSheet } from 'react-native';
-import BottomNavigationBar from '../../components/BottomNavigationBar'
+import BottomNavigationBar from 'BottomNavigationBar'
 
 import { Provider } from 'react-redux';
 import store from '../../redux/store';

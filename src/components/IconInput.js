@@ -4,7 +4,7 @@
  * @providesModule IconInput
  */
 
-
+ 
 import React, { Component } from 'react';
 import { View,  StyleSheet, TextInput} from 'react-native';
 import { Icon } from 'react-native-elements'

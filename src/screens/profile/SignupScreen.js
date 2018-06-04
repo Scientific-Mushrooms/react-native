@@ -5,12 +5,8 @@ import {
     View,
     Image,
     TouchableOpacity,
-    TextInput,
-    ToastAndroid,
-  } from 'react-native';
+    TextInput } from 'react-native';
 
-import passwordIcon from '../../images/icons/password.png';
-import usernameIcon from '../../images/icons/username.png';
 
 
 export default class LoginScreen extends Component {
@@ -55,10 +51,7 @@ export default class LoginScreen extends Component {
             <View style={styles.container}>
 
                 <View style={styles.inputBox}>
-                    <Image
-                        style={styles.img}
-                        source={usernameIcon}
-                        />
+ 
                     <TextInput
                         style={styles.input}
                         onChangeText={this.onUsernameChanged}
@@ -69,9 +62,7 @@ export default class LoginScreen extends Component {
                 </View>
 
                 <View style={styles.inputBox}>
-                    <Image
-                        source={passwordIcon}
-                        style={styles.img}/>
+
                     <TextInput
                         style={styles.input}
                         onChangeText={this.onPasswordChanged}
@@ -82,10 +73,7 @@ export default class LoginScreen extends Component {
                 </View>
 
                 <View style={styles.inputBox}>
-                    <Image
-                        style={styles.img}
-                        source={usernameIcon}
-                        />
+  
                     <TextInput
                         style={styles.input}
                         onChangeText={this.onUsernameChanged}
@@ -96,10 +84,7 @@ export default class LoginScreen extends Component {
                 </View>
 
                 <View style={styles.inputBox}>
-                    <Image
-                        style={styles.img}
-                        source={usernameIcon}
-                        />
+ 
                     <TextInput
                         style={styles.input}
                         onChangeText={this.onUsernameChanged}

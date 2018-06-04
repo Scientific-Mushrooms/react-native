@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
-import BottomNavigationBar from '../../components/BottomNavigationBar';
-import IconButton from '../../components/IconButton';
+import BottomNavigationBar from 'BottomNavigationBar';
+import IconButton from 'IconButton';
 import { Avatar, Icon } from 'react-native-elements';
 
 
@@ -14,6 +14,21 @@ export default class ProfileMainScreen extends Component {
 
     toLoginPage = () => {
         this.props.navigation.navigate('Login', { transition: 'forVertical' })
+    }
+
+    avatar = () => {
+        return (
+            <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
+                        <Avatar
+                            large
+                            rounded
+                            source={require("../../images/avatars/test.png")}
+                            activeOpacity={0.7}
+                        />
+                        <Text style={styles.name}>233333333333</Text>
+                        <Icon name='chevron-right' style={styles.icon} size={30}/>
+            </TouchableOpacity>
+        );
     }
 
     render() {
@@ -31,16 +46,17 @@ export default class ProfileMainScreen extends Component {
                     style={styles.scrollContainer} 
                     showsVerticalScrollIndicator={false}>
 
-                    <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
+                    {/* <TouchableOpacity style={styles.userContainer} onPress={this.toLoginPage}> 
                         <Avatar
                             large
                             rounded
-                            source={require("../../images/icons/password.png")}
+                            source={require("../../images/avatars/test.png")}
                             activeOpacity={0.7}
                         />
                         <Text style={styles.name}>233333333333</Text>
                         <Icon name='chevron-right' style={styles.icon} size={30}/>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
+                    {this.avatar()}
 
                     <View style={styles.buttonGroupA}>
                         <IconButton title='Setting' onPress={this.toLoginPage} icon='settings'/>

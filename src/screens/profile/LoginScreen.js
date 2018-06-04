@@ -10,8 +10,7 @@ import {
 
 import IconInput from 'IconInput';
 
-import passwordIcon from '../../images/icons/password.png';
-import usernameIcon from '../../images/icons/username.png';
+
 import { connect } from 'react-redux';
 import { login, logout } from '../../redux/actions/action'
 
