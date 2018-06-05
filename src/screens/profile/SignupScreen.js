@@ -17,35 +17,14 @@ import { logout, login } from '../../redux/actions/action';
 
 class SignupScreen extends BaseComponent {
 
-    phoneNumber = '';
-
-    username = '';
-
-    password = '';
-
-    repassword = '';
-
-    onPhoneNumberChanged = (newPhoneNumber) => {
-        this.phoneNumber = newPhoneNumber;
-    };
-
-    onUsernameChanged = (newUsername) => {
-        this.username = newUsername;
-    };
-    
-    onPasswordChanged = (newPassword) => {
-        this.password = newPassword;
-    };
-
-    onRepasswordChanged = (newRepassword) => {
-        this.repassword = newRepassword;
-    };
     
     login = () => {
-        if (this.username == 'admin' && this.password == '123') {
-            this.props.navigation.navigate('Home');
+        if (this.username == '' && this.password == '') {
+            alert('can not be empty');
         } else {
-            alert('fail')
+            let form = new FormData();
+            form.append("phoneNumber", this.phoneNumber);
+            form.append("password", this.password);
         }
     };
 
@@ -53,8 +32,10 @@ class SignupScreen extends BaseComponent {
 
         if (this.password != this.repassword) {
             alert("different password");
+
         } else if (this.password == '' || this.phoneNumber == '') {
             alert("can not be empty");
+
         } else {
             let form = new FormData();
             form.append("phoneNumber", this.phoneNumber);
@@ -70,7 +51,6 @@ class SignupScreen extends BaseComponent {
                     this.props.dispatch(login(this.username));
                     this.props.navigation.navigate('Home');
                 }
-
             })
         }
         

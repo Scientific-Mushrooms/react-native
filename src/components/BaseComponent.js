@@ -25,4 +25,29 @@ export default class BaseComponent extends Component {
                     .catch((error) => { console.error(error); });
     }
 
+
+    phoneNumber = '';
+
+    username = '';
+
+    password = '';
+
+    repassword = '';
+
+    onPhoneNumberChanged = (newPhoneNumber) => {
+        this.phoneNumber = newPhoneNumber;
+    };
+
+    onUsernameChanged = (newUsername) => {
+        this.username = newUsername;
+    };
+    
+    onPasswordChanged = (newPassword) => {
+        this.password = newPassword;
+    };
+
+    onRepasswordChanged = (newRepassword) => {
+        this.repassword = newRepassword;
+    };
+
 }
