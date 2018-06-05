@@ -3,9 +3,10 @@ import {  View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import BottomNavigationBar from 'BottomNavigationBar';
 import IconButton from 'IconButton';
+import InfoBar from 'InfoBar';
+import Header from 'Header';
 
 import { Icon } from 'react-native-elements';
-import InfoBar from 'InfoBar';
 
 import { connect } from 'react-redux';
 
@@ -24,12 +25,7 @@ class ProfileMainScreen extends Component {
         return (
             <View style={styles.mainContainer}>
 
-                <View style={styles.headerContainer}>
-                    <View style={styles.headerPadding}/>
-                    <View style={styles.headerFunction}>
-                        <Icon name='settings' />
-                    </View>
-                </View>
+                <Header/>
                 
                 <ScrollView  style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
@@ -57,7 +53,6 @@ class ProfileMainScreen extends Component {
     }
 }
 
-
 const styles = StyleSheet.create({
 
     mainContainer: { 
@@ -67,36 +62,6 @@ const styles = StyleSheet.create({
 
     scrollContainer: {
         width: '100%',
-    },
-
-    headerContainer: {
-        backgroundColor: '#b72712',
-    },
-
-    headerPadding: {
-        height: 20,
-    },
-
-    headerFunction: {
-        height: 40,
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
-
-    userContainer: {
-        width: '100%',
-        height: 90,
-        backgroundColor: '#fbfcfd',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
-
-    name: {
-        width: '60%',
-        height: '30%',
-        marginLeft: 10,
-        marginRight: 20,
     },
 
     buttonGroupA: {
