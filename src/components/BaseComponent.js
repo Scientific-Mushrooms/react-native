@@ -10,6 +10,8 @@ export default class BaseComponent extends Component {
         header: null,
     };
 
+    ip = 'http://192.168.239.148:8080'
+
     post = (url, form) => {
         return fetch(url, { method: 'POST', body: form})
                     .then((response) => (response.json()))

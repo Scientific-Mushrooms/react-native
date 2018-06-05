@@ -17,9 +17,6 @@ import { connect } from 'react-redux';
 import { logout, login } from '../../redux/actions/action';
 
 
-import { post } from '../../services/LoginService';
-
-const ip = 'http://192.168.239.148:8080'
 
 class LoginScreen extends BaseComponent {
 
@@ -28,11 +25,10 @@ class LoginScreen extends BaseComponent {
     }
 
     phoneNumber = '';
-    username = '';
     password = '';
 
-    onUsernameChanged = (newUsername) => {
-        this.username = newUsername;
+    onPhoneNumberChanged = (newPhoneNumber) => {
+        this.phoneNumber= newPhoneNumber;
     };
     
     onPasswordChanged = (newPassword) => {
@@ -40,16 +36,21 @@ class LoginScreen extends BaseComponent {
     };
     
     login = () => {
+
         let form = new FormData();
         form.append("phoneNumber", this.phoneNumber);
+        form.append("password", this.password);
 
-        this.post(ip + '/login',form).then((result) => {
-            if (result.status == 'success') {
+        this.post(this.ip + '/login',form).then((result) => {
+
+            if (result.status == 'fail') {
+                alert(result.description);
+
+            } else {
                 this.props.dispatch(login(this.username));
                 this.props.navigation.navigate('Home');
-            } else {
-                alert('fail');
             }
+
         })
     }
 
@@ -78,7 +79,7 @@ class LoginScreen extends BaseComponent {
                     secureTextEntry={true}
                     />
 
-                <ColorButton title='LOG IN' onPress={this.login}/>
+                <ColorButton title='LOG IN' onPress={this.login} style={styles.button}/>
                 <ColorButton title='SIGN UP' onPress={this.signup}/>
 
             </View>
@@ -92,24 +93,9 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fbfcfd',
     },
-
-    button: {
-        height: 50,
-        width: 280,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 8,
-        backgroundColor: '#66f',    
-        marginBottom: 8,
-    },
-
-    btText: {
-        color: '#fff',
-    }
 
 });
   
