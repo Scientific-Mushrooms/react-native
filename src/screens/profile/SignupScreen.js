@@ -17,17 +17,28 @@ import { logout, login } from '../../redux/actions/action';
 
 class SignupScreen extends BaseComponent {
 
+    phoneNumber = '';
+
     username = '';
+
     password = '';
 
+    repassword = '';
+
+    onPhoneNumberChanged = (newPhoneNumber) => {
+        this.phoneNumber = newPhoneNumber;
+    };
+
     onUsernameChanged = (newUsername) => {
-        console.log(newUsername);
         this.username = newUsername;
     };
     
     onPasswordChanged = (newPassword) => {
-        console.log(newPassword);
         this.password = newPassword;
+    };
+
+    onRepasswordChanged = (newRepassword) => {
+        this.repassword = newRepassword;
     };
     
     login = () => {
@@ -39,7 +50,30 @@ class SignupScreen extends BaseComponent {
     };
 
     signup = () => {
-        this.props.navigation.navigate('Signup');
+
+        if (this.password != this.repassword) {
+            alert("different password");
+        } else if (this.password == '' || this.phoneNumber == '') {
+            alert("can not be empty");
+        } else {
+            let form = new FormData();
+            form.append("phoneNumber", this.phoneNumber);
+            form.append("password", this.password);
+            form.append("username", this.username);
+
+            this.post(this.ip + '/signup',form).then((result) => {
+
+                if (result.status == 'fail') {
+                    alert(result.description);
+
+                } else {
+                    this.props.dispatch(login(this.username));
+                    this.props.navigation.navigate('Home');
+                }
+
+            })
+        }
+        
     };
     
     render() {
@@ -49,29 +83,33 @@ class SignupScreen extends BaseComponent {
                 <Header/>
 
                 <IconInput 
-                    icon='phone' 
-                    placeholder='username' 
-                    onChangeText={this.onUsernameChanged}
+                    icon='mobile-phone' 
+                    type='font-awesome'
+                    placeholder='phone number' 
+                    onChangeText={this.onPhoneNumberChanged}
                     />
 
                 <IconInput 
-                    icon='settings' 
+                    icon='user' 
+                    type='evilicon'
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged} 
+                    secureTextEntry={true}
+                    />
+
+                <IconInput 
+                    icon='lock' 
+                    type='evilicon'
                     placeholder='password' 
                     onChangeText={this.onPasswordChanged} 
                     secureTextEntry={true}
                     />
 
                 <IconInput 
-                    icon='settings' 
-                    placeholder='password' 
-                    onChangeText={this.onPasswordChanged} 
-                    secureTextEntry={true}
-                    />
-
-                <IconInput 
-                    icon='phone' 
-                    placeholder='username' 
-                    onChangeText={this.onUsernameChanged}
+                    icon='unlock' 
+                    type='evilicon'
+                    placeholder='repassword' 
+                    onChangeText={this.onRepasswordChanged}
                     />
 
 

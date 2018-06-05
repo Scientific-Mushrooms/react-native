@@ -16,7 +16,13 @@ export default class iconInput extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.middleContainer}>
-                    <Icon name={this.props.icon} containerStyle={styles.icon} size={20} color='#8f8e94' />
+                    <Icon 
+                        name={this.props.icon} 
+                        containerStyle={styles.icon} 
+                        size={20} 
+                        color='#8f8e94' 
+                        type={this.props.type}
+                        />
                     <TextInput
                         style={styles.input}
                         onChangeText={this.props.onChangeText}
