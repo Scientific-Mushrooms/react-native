@@ -9,10 +9,13 @@ import {
     ToastAndroid, } from 'react-native';
 
 import IconInput from 'IconInput';
+import Header from 'Header';
 
 
 import { connect } from 'react-redux';
 import { login, logout } from '../../redux/actions/action'
+
+const ip = 'http://192.168.239.148:8080'
 
 class LoginScreen extends Component {
 
@@ -44,17 +47,32 @@ class LoginScreen extends Component {
         this.props.dispatch(logout());
         this.props.navigation.navigate('Signup');
     };
+
+    test = () => {
+        let parameters = new FormData();
+            parameters.append("name", "30013");
+            parameters.append("pg", "1");
+            parameters.append('ps', '20');
+        fetch(ip + '/login', {
+            method: 'POST',
+            body: parameters})
+            .then((response) => response.json())
+            .then((responseJson) => { alert(responseJson.user.name) })
+            .catch((error) => { console.error(error); });
+    };
     
     render() {
         return (
             <View style={styles.container}>
+
+                <Header/>
 
                 <IconInput 
                     icon='settings' 
                     placeholder='username' 
                     onChangeText={this.onUsernameChanged}
                     />
-                    
+
                 <IconInput 
                     icon='settings' 
                     placeholder='password' 
@@ -63,7 +81,7 @@ class LoginScreen extends Component {
                     />
 
                 <TouchableOpacity
-                    onPress={this.login}
+                    onPress={this.test}
                     style={styles.button}>
                     <Text style={styles.btText}>LOG IN</Text>
                 </TouchableOpacity>

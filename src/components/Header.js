@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
 
     headerContainer: {
         backgroundColor: '#b72712',
+        width: '100%',
+        top: 0,
     },
 
     headerPadding: {
