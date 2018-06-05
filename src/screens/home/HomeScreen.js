@@ -10,6 +10,8 @@ import IconInput from 'IconInput'
 import IconButton from 'IconButton'
 import InfoBar from 'InfoBar';
 
+import ColorButton from 'ColorButton'
+
 export default class HomeScreen extends Component {
     username = '';
     password = '';
@@ -22,7 +24,7 @@ export default class HomeScreen extends Component {
     };
 
     click = () => {
-        alert(this.username);
+        alert("11111");
     }
 
     render() {
@@ -45,7 +47,8 @@ export default class HomeScreen extends Component {
                 <Text>{this.username}</Text>
                 <Home/>
                 <IconButton title='test' onPress={this.click}/>
-                <BottomNavigationBar/>
+                <ColorButton title='test2' onPress={this.click}/>
+                <BottomNavigationBar onPress={this.click}/>
             </View>
         );
     }

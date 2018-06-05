@@ -11,7 +11,7 @@ import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { Icon } from 'react-native-elements'
 
 
-export default class CommonButton extends Component {
+export default class IconButton extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>

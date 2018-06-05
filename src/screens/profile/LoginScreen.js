@@ -10,6 +10,7 @@ import {
 
 import IconInput from 'IconInput';
 import Header from 'Header';
+import ColorButton from 'ColorButton';
 import BaseComponent from '../../components/BaseComponent'
 
 import { connect } from 'react-redux';
@@ -26,7 +27,7 @@ class LoginScreen extends BaseComponent {
         super(props);
     }
 
-
+    phoneNumber = '';
     username = '';
     password = '';
 
@@ -40,7 +41,7 @@ class LoginScreen extends BaseComponent {
     
     login = () => {
         let form = new FormData();
-        form.append("name", "30013");
+        form.append("phoneNumber", this.phoneNumber);
 
         this.post(ip + '/login',form).then((result) => {
             if (result.status == 'success') {
@@ -49,9 +50,7 @@ class LoginScreen extends BaseComponent {
             } else {
                 alert('fail');
             }
-    })
-
-
+        })
     }
 
     signup = () => {
@@ -67,7 +66,7 @@ class LoginScreen extends BaseComponent {
                 <Header/>
 
                 <IconInput 
-                    icon='settings' 
+                    icon='phone' 
                     placeholder='username' 
                     onChangeText={this.onUsernameChanged}
                     />
@@ -79,17 +78,8 @@ class LoginScreen extends BaseComponent {
                     secureTextEntry={true}
                     />
 
-                <TouchableOpacity
-                    onPress={this.login}
-                    style={styles.button}>
-                    <Text style={styles.btText}>LOG IN</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={this.dd}>
-                    <Text style={styles.btText}>SIGN UP</Text>
-                </TouchableOpacity>
+                <ColorButton title='LOG IN' onPress={this.login}/>
+                <ColorButton title='SIGN UP' onPress={this.signup}/>
 
             </View>
         );
