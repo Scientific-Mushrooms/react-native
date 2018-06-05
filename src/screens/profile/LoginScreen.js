@@ -17,11 +17,29 @@ import { login, logout } from '../../redux/actions/action'
 
 const ip = 'http://192.168.239.148:8080'
 
+
+
+_login = (result) => {
+    if (result.status == 'success') {
+        // this.props.dispatch(login(this.username));
+        // this.props.navigation.navigate('Home');
+        alert("666");
+    } else {
+        alert(fail);
+    }
+}
+
 class LoginScreen extends Component {
 
     static navigationOptions = {
         header: null,
     };
+    
+    post = (url, form) => {
+        return fetch(url, { method: 'POST', body: form})
+                    .then((response) => (response.json()))
+                    .catch((error) => { console.error(error); });
+    }
     
     username = '';
     password = '';
@@ -34,14 +52,15 @@ class LoginScreen extends Component {
         this.password = newPassword;
     };
     
-    login = () => {
-        if (this.username == 'admin' && this.password == '123') {
-            this.props.dispatch(login(this.username));
-            this.props.navigation.navigate('Home');
+    login = (result) => {
+        if (result.status == 'success') {
+            // this.props.dispatch(login(this.username));
+            // this.props.navigation.navigate('Home');
+            alert("666");
         } else {
-            alert('fail')
+            alert(fail);
         }
-    };
+    }
 
     signup = () => {
         this.props.dispatch(logout());
@@ -49,16 +68,10 @@ class LoginScreen extends Component {
     };
 
     test = () => {
-        let parameters = new FormData();
-            parameters.append("name", "30013");
-            parameters.append("pg", "1");
-            parameters.append('ps', '20');
-        fetch(ip + '/login', {
-            method: 'POST',
-            body: parameters})
-            .then((response) => response.json())
-            .then((responseJson) => { alert(responseJson.user.name) })
-            .catch((error) => { console.error(error); });
+        let form = new FormData();
+        form.append("name", "30013");
+
+        post(ip + '/login',form).then(_login)
     };
     
     render() {
