@@ -9,8 +9,8 @@ import Home from './Home';
 import IconInput from 'IconInput'
 import IconButton from 'IconButton'
 import InfoBar from 'InfoBar';
-
 import ColorButton from 'ColorButton'
+
 
 export default class HomeScreen extends Component {
     username = '';

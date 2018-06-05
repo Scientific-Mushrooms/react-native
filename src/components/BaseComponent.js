@@ -1,3 +1,10 @@
+
+
+/**
+ * @providesModule BaseComponent
+ */
+
+
 import React, { Component } from 'react';
 import BottomNavigationBar from 'BottomNavigationBar'
 import { View, Text } from 'react-native'

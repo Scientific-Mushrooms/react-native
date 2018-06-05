@@ -17,7 +17,6 @@ import { connect } from 'react-redux';
 import { logout, login } from '../../redux/actions/action';
 
 
-
 class LoginScreen extends BaseComponent {
 
     constructor(props) {
@@ -79,7 +78,7 @@ class LoginScreen extends BaseComponent {
                     secureTextEntry={true}
                     />
 
-                <ColorButton title='LOG IN' onPress={this.login} style={styles.button}/>
+                <ColorButton title='LOG IN' onPress={this.login}/>
                 <ColorButton title='SIGN UP' onPress={this.signup}/>
 
             </View>

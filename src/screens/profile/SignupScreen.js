@@ -7,20 +7,16 @@ import {
     TouchableOpacity,
     TextInput } from 'react-native';
 
+import IconInput from 'IconInput';
+import Header from 'Header';
+import ColorButton from 'ColorButton';
+import BaseComponent from 'BaseComponent';
 
+import { connect } from 'react-redux';
+import { logout, login } from '../../redux/actions/action';
 
-export default class LoginScreen extends Component {
+class SignupScreen extends BaseComponent {
 
-    static navigationOptions = {
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-    };
-    
     username = '';
     password = '';
 
@@ -50,106 +46,54 @@ export default class LoginScreen extends Component {
         return (
             <View style={styles.container}>
 
-                <View style={styles.inputBox}>
- 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onUsernameChanged}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'username'}
-                        underlineColorAndroid={'transparent'}
-                        />
-                </View>
+                <Header/>
 
-                <View style={styles.inputBox}>
+                <IconInput 
+                    icon='phone' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onPasswordChanged}
-                        secureTextEntry={true}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'password'}
-                        underlineColorAndroid={'transparent'}/>
-                </View>
+                <IconInput 
+                    icon='settings' 
+                    placeholder='password' 
+                    onChangeText={this.onPasswordChanged} 
+                    secureTextEntry={true}
+                    />
 
-                <View style={styles.inputBox}>
-  
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onUsernameChanged}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'username'}
-                        underlineColorAndroid={'transparent'}
-                        />
-                </View>
+                <IconInput 
+                    icon='settings' 
+                    placeholder='password' 
+                    onChangeText={this.onPasswordChanged} 
+                    secureTextEntry={true}
+                    />
 
-                <View style={styles.inputBox}>
- 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={this.onUsernameChanged}
-                        placeholderTextColor={'#fff'}
-                        placeholder={'username'}
-                        underlineColorAndroid={'transparent'}
-                        />
-                </View>
+                <IconInput 
+                    icon='phone' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
 
-                <TouchableOpacity
-                    onPress={this.login}
-                    style={styles.button}>
-                    <Text style={styles.btText}>LOG IN</Text>
-                </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={this.signup}>
-                    <Text style={styles.btText}>SIGN UP</Text>
-                </TouchableOpacity>
+                <ColorButton title='JOIN NOW' onPress={this.signup}/>
 
             </View>
         );
     }
 }
 
-
-
 const styles = StyleSheet.create({
+
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#fbfcfd',
     },
-    img: {
-        width: 30,
-        height: 30,
-    },
-    input: {
-        width: 200,
-        height: 40,
-        color: '#fff',
-    },
-    inputBox: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 280,
-        height: 50,
-        borderRadius: 8,
-        backgroundColor: '#66f',
-        marginBottom: 8,
-    },
-    button: {
-        height: 50,
-        width: 280,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 8,
-        backgroundColor: '#66f',    
-        marginBottom: 8,
-    },
-    btText: {
-        color: '#fff',
-    }
-  });
+
+});
   
+const mapStateToProps = state => ({
+    user: state.user.name,
+})
+
+export default connect(mapStateToProps)(SignupScreen);
