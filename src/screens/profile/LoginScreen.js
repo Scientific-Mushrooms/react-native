@@ -10,37 +10,23 @@ import {
 
 import IconInput from 'IconInput';
 import Header from 'Header';
-
+import BaseComponent from '../../components/BaseComponent'
 
 import { connect } from 'react-redux';
-import { login, logout } from '../../redux/actions/action'
+import { logout, login } from '../../redux/actions/action';
+
+
+import { post } from '../../services/LoginService';
 
 const ip = 'http://192.168.239.148:8080'
 
+class LoginScreen extends BaseComponent {
 
-
-_login = (result) => {
-    if (result.status == 'success') {
-        // this.props.dispatch(login(this.username));
-        // this.props.navigation.navigate('Home');
-        alert("666");
-    } else {
-        alert(fail);
+    constructor(props) {
+        super(props);
     }
-}
 
-class LoginScreen extends Component {
 
-    static navigationOptions = {
-        header: null,
-    };
-    
-    post = (url, form) => {
-        return fetch(url, { method: 'POST', body: form})
-                    .then((response) => (response.json()))
-                    .catch((error) => { console.error(error); });
-    }
-    
     username = '';
     password = '';
 
@@ -52,14 +38,20 @@ class LoginScreen extends Component {
         this.password = newPassword;
     };
     
-    login = (result) => {
-        if (result.status == 'success') {
-            // this.props.dispatch(login(this.username));
-            // this.props.navigation.navigate('Home');
-            alert("666");
-        } else {
-            alert(fail);
-        }
+    login = () => {
+        let form = new FormData();
+        form.append("name", "30013");
+
+        this.post(ip + '/login',form).then((result) => {
+            if (result.status == 'success') {
+                this.props.dispatch(login(this.username));
+                this.props.navigation.navigate('Home');
+            } else {
+                alert('fail');
+            }
+    })
+
+
     }
 
     signup = () => {
@@ -67,12 +59,6 @@ class LoginScreen extends Component {
         this.props.navigation.navigate('Signup');
     };
 
-    test = () => {
-        let form = new FormData();
-        form.append("name", "30013");
-
-        post(ip + '/login',form).then(_login)
-    };
     
     render() {
         return (
@@ -94,14 +80,14 @@ class LoginScreen extends Component {
                     />
 
                 <TouchableOpacity
-                    onPress={this.test}
+                    onPress={this.login}
                     style={styles.button}>
                     <Text style={styles.btText}>LOG IN</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={this.signup}>
+                    onPress={this.dd}>
                     <Text style={styles.btText}>SIGN UP</Text>
                 </TouchableOpacity>
 
