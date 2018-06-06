@@ -31,23 +31,24 @@ export default class HomeScreen extends Component {
         return (
             <View style={styles.mainContainer}>
 
-            <IconInput 
+                <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
+                    
+                <IconInput 
                     icon='settings' 
                     placeholder='username' 
                     onChangeText={this.onUsernameChanged}
                     />
 
-                     <IconInput 
-                    icon='settings' 
-                    placeholder='username' 
-                    onChangeText={this.onUsernameChanged}
-                    />
                 <Text>This is home page</Text>
                 <InfoBar name='admin'/>
                 <Text>{this.username}</Text>
                 <Home/>
                 <IconButton title='test' onPress={this.click}/>
-                <ColorButton title='test2' onPress={this.click}/>
+                <ColorButton title='33' onPress={this.click}/>
                 <BottomNavigationBar onPress={this.click}/>
             </View>
         );

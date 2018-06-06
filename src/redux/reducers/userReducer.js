@@ -7,6 +7,9 @@ export default user = (state = {}, action) => {
 
         case 'LOGOUT':
             return { ...state, name: null };
+
+        case 'FOLLOW':
+            return { ...state, follow: state.follower + 1};
             
         default:
             return state;

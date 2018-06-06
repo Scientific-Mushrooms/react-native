@@ -70,8 +70,10 @@ class LoginScreen extends BaseComponent {
                     secureTextEntry={true}
                     />
 
-                <ColorButton title='LOG IN' onPress={this.login}/>
-                <ColorButton title='SIGN UP' onPress={this.signup}/>
+                <View style={styles.buttonContainer}>
+                    <ColorButton title='LOG IN' onPress={this.login}/>
+                    <ColorButton title='SIGN UP' onPress={this.signup}/>
+                </View>
 
             </View>
         );
@@ -87,6 +89,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#fbfcfd',
     },
+
+    buttonContainer: {
+        alignItems: 'center',
+        width: '100%',
+        marginTop: 30,
+    }
 
 });
   

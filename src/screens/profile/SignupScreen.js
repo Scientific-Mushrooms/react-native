@@ -74,7 +74,6 @@ class SignupScreen extends BaseComponent {
                     type='evilicon'
                     placeholder='username' 
                     onChangeText={this.onUsernameChanged} 
-                    secureTextEntry={true}
                     />
 
                 <IconInput 
@@ -90,6 +89,7 @@ class SignupScreen extends BaseComponent {
                     type='evilicon'
                     placeholder='repassword' 
                     onChangeText={this.onRepasswordChanged}
+                    secureTextEntry={true}
                     />
 
 

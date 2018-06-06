@@ -11,6 +11,9 @@ const preloadedState = {
 
     user : {
         name: null,
+        post: 0,
+        follower: 1,
+        following: 3,
     }
 }
 

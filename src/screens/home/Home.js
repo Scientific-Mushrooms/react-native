@@ -40,15 +40,15 @@ class Home extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.stop} onPress={()=>this._onPressDec()}>
-                <Text>减1</Text>
+                <Text>减{this.props.follow}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
-                <Text>33333333333333333</Text>
+                <Text>{this.props.follow}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
-                <Text>{this.props.user}</Text>
+                <Text>{this.props.user.follow}</Text>
                 </TouchableOpacity>
                 
         </View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    user: state.user.name,
+    user: state.user,
     counter: state.counter,
 })
 

@@ -21,35 +21,64 @@ class InfoBar extends Component {
 
         if (this.props.name === null) {
             return (
+
                 <View style={styles.container}>
-                    <Text style={styles.introContainer}>xxxxxxxxxxxxxxxxx</Text>
+                    <Text style={styles.intro}>一航战，出击！</Text>
+                    <Text style={styles.intro}>喵喵喵？？？</Text>
                     <TouchableOpacity style={styles.button} onPress={this.toLoginPage}>
                         <Text>LOG IN</Text>
                     </TouchableOpacity>
                 </View>
+
             );
         } else {
             return (
+
                 <View style={styles.container}>
-                
                     <TouchableOpacity style={styles.topContainer} onPress={this.toLoginPage}> 
                         <Image source={require('../images/avatars/test.png')} style={styles.avatar}/>
                         <Text style={styles.name}>{this.props.name}</Text>
-                        <Icon name='chevron-right' style={styles.arrow} size={30}/>
+                        <Icon 
+                            name='chevron-right' 
+                            containerStyle={styles.arrow} 
+                            size={30}
+                            color='#e7e7e8'
+                            />
                     </TouchableOpacity>
     
                     <View style={styles.bottomContainer}>
-                        <View style={styles.infoContainer}>
-                        </View>
-                        <View style={styles.infoContainer}>
-                        </View>
-                        <View style={styles.infoContainer}>
-                        </View>
-                        <View style={styles.infoContainer}>
-                        </View>
-                    </View>
 
+                        <View style={styles.infoContainer}>
+                            <View style={styles.smallContainer}>
+                                <Text style={styles.infoTitle}>Posts</Text>
+                                <Text style={styles.infoValue}>2</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.infoContainer}>
+                            <View style={styles.smallContainer}>
+                                <Text style={styles.infoTitle}>Following</Text>
+                                <Text style={styles.infoValue}>3</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.infoContainer}>
+                            <View style={styles.smallContainer}>
+                                <Text style={styles.infoTitle}>Followers</Text>
+                                <Text style={styles.infoValue}>2</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.infoContainer}>
+                            <View style={styles.smallContainer}>
+                                <Text style={styles.infoTitle}>Profile</Text>
+                                <Text style={styles.infoValue}>11</Text>
+                            </View>
+                        </View>
+
+                    </View>
                 </View>
+
             );
         }
     }
@@ -64,6 +93,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fbfcfd',
         height: 140,
         alignItems: 'center',
+        justifyContent: 'center',
     },
 
     topContainer: {
@@ -88,15 +118,35 @@ const styles = StyleSheet.create({
     },
 
     bottomContainer: {
-        height: 50,
+        height: 60,
         width: '100%',
-        backgroundColor: "black",
         flexDirection: 'row',
     },
 
     infoContainer: {
         width: '25%',
         height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderTopWidth: 1,
+        borderColor: '#e2e2e3',
+    },
+
+    smallContainer: {
+        width: '100%',
+        height: '50%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRightWidth: 1,
+        borderColor: '#e2e2e3',
+    },
+
+    infoTitle: {
+        color: '#8f8e94',
+    },
+
+    infoValue: {
+        color: '#323233',
     },
 
     button: {
@@ -109,10 +159,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    introContainer: {
-        height: 70,
+    intro: {
+        height: 35,
         width: '80%',
-        fontSize: 30
+        fontSize: 20,
+        textAlign: 'center'
     }
 
 });
