@@ -60,7 +60,7 @@ class SignupScreen extends BaseComponent {
         return (
             <View style={styles.container}>
 
-                <Header/>
+                <Header leftIcon='chevron-left' title='账号' leftIconTo='back'/>
 
                 <IconInput 
                     icon='mobile-phone' 

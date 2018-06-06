@@ -15,10 +15,21 @@ export default class IconButton extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
-                <Icon name={this.props.icon} containerStyle={styles.icon} size={20} color='#8f8e94' />
+
+                <Icon 
+                    name={this.props.icon} 
+                    containerStyle={styles.icon} 
+                    size={20} 
+                    color='#8f8e94'
+                    />
                 <View style={styles.rightContainer}>
                     <Text style={styles.title}>{this.props.title}</Text>
-                    <Icon name='chevron-right' containerStyle={styles.arrow} size={30} color='#e7e7e8'/>
+                    <Icon 
+                        name='chevron-right' 
+                        containerStyle={styles.arrow} 
+                        size={30} 
+                        color='#e7e7e8'
+                        />
                 </View>
             </TouchableOpacity>
         );

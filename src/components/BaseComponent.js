@@ -25,7 +25,6 @@ export default class BaseComponent extends Component {
                     .catch((error) => { console.error(error); });
     }
 
-
     phoneNumber = '';
 
     username = '';

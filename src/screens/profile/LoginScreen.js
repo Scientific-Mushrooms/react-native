@@ -39,8 +39,6 @@ class LoginScreen extends BaseComponent {
                 }
             })
         }
-
-        
     };
 
 
@@ -49,12 +47,15 @@ class LoginScreen extends BaseComponent {
         this.props.navigation.navigate('Signup');
     };
 
-    
+    goBack = () => {
+        this.props.navigation.goBack();
+    }
+
     render() {
         return (
             <View style={styles.container}>
 
-                <Header/>
+                <Header leftIcon='chevron-left' title='账号' leftIconTo='back'/>
 
                 <IconInput 
                     icon='phone' 

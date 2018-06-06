@@ -25,7 +25,7 @@ class ProfileMainScreen extends Component {
         return (
             <View style={styles.mainContainer}>
 
-                <Header/>
+                <Header leftIcon='settings' title='账号' leftIconOnPress={this.toLoginPage}/>
                 
                 <ScrollView  style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
