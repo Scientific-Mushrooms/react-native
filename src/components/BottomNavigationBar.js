@@ -6,8 +6,8 @@
 
 
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {  View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
@@ -39,29 +39,46 @@ class BottomNavigationBar extends Component {
           <View style={styles.barContainer}>
                 <View style={styles.flexContainer}>
 
-                <Button
-                    icon={this.homeIcon}
-                    onPress={this.homeOnPress}
-                    containerViewStyle={styles.button}
-                />
 
-                <Button
-                    icon={this.homeIcon}
-                    onPress={this.homeOnPress}
-                    containerViewStyle={styles.button}
-                />
+                <TouchableHighlight style={styles.button} onPress={this.homeOnPress}>
+                      <Icon
+                          name='home'
+                          type='feather'
+                          containerStyle={styles.arrow}
+                          size={25}
+                          color='#666666'
+                      />
+                </TouchableHighlight>
 
-                <Button
-                    icon={this.messageIcon}
-                    onPress={this.messageOnPress}
-                    containerViewStyle={styles.button}
-                />
+                  <TouchableHighlight style={styles.button} onPress={this.homeOnPress}>
+                      <Icon
+                          name='message-square'
+                          type='feather'
+                          containerStyle={styles.arrow}
+                          size={25}
+                          color='#666666'
+                      />
+                  </TouchableHighlight>
 
-                <Button
-                    icon={this.profileIcon}
-                    onPress={this.profileOnPress}
-                    containerViewStyle={styles.button}
-                />
+                  <TouchableHighlight style={styles.button} onPress={this.messageOnPress}>
+                      <Icon
+                          name='wall'
+                          type='material-community'
+                          containerStyle={styles.arrow}
+                          size={25}
+                          color='#666666'
+                      />
+                  </TouchableHighlight>
+
+                  <TouchableHighlight style={styles.button} onPress={this.profileOnPress}>
+                      <Icon
+                          name='user'
+                          type='feather'
+                          containerStyle={styles.arrow}
+                          size={25}
+                          color='#666666'
+                      />
+                  </TouchableHighlight>   
                    
             </View>
         </View>
@@ -86,9 +103,9 @@ const styles = StyleSheet.create({
     button: {
         height: '100%',
         width: '25%',
-        backgroundColor: 'pink',
-        marginLeft: 0,
-        marginRight: 0,
+        backgroundColor: '#f3f3f4',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     
 });

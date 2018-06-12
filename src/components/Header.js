@@ -24,9 +24,10 @@ class Header extends Component {
                 <Icon 
                     name={this.props.leftIcon} 
                     containerStyle={styles.leftIcon} 
-                    size={30} 
+                    size={25} 
                     onPress={this.goBack}
                     color='#fff'
+                    type={this.props.type}
                     underlayColor='transparent'
                     />
                 <Text style={styles.title}>{this.props.title}</Text>

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import {  View, Text, StyleSheet, ScrollView } from 'react-native';
+import {  View, StyleSheet, ScrollView } from 'react-native';
 
 import BottomNavigationBar from 'BottomNavigationBar';
 import IconButton from 'IconButton';
 import InfoBar from 'InfoBar';
 import Header from 'Header';
 
-import { Icon } from 'react-native-elements';
 
 import { connect } from 'react-redux';
 
