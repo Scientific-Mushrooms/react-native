@@ -38,6 +38,7 @@ export const FontAwesome = {
     weixin: String.fromCharCode(61911),
     steam: String.fromCharCode(61878),
     cog: String.fromCharCode(61459),
+    book: String.fromCharCode(61485),
 };
 
 

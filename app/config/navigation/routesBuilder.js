@@ -24,7 +24,11 @@ let flatRoutes = {};
     flatRoutes[route.id] = wrapToRoute(route);
     main[route.id] = wrapToRoute(route);
     for (let child of route.children) {
-      flatRoutes[child.id] = wrapToRoute(child);
+        flatRoutes[child.id] = wrapToRoute(child);
+
+        for (let kid of child.children) {
+            flatRoutes[kid.id] = wrapToRoute(kid);
+        }
     }
 
 });

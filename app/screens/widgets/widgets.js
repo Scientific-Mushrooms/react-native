@@ -10,7 +10,7 @@ import {
   RkStyleSheet
 } from 'react-native-ui-kitten';
 import {MainRoutes} from '../../config/navigation/routes';
-
+import _ from 'lodash';
 
 export class Widgets extends React.Component {
 
@@ -34,11 +34,9 @@ export class Widgets extends React.Component {
     render() {
         let navigate = this.props.navigation.navigate;
         let items = <View/>;
-
         if (this.state.dimensions) {
             let size = this.state.dimensions.width / 3;
-
-            items = MainRoutes.map(function (route, index) {
+            items = _.find(MainRoutes, { id: 'Widgets' }).children.map(function (route, index) {
                 return (
                     <RkButton rkType='tile'
                         style={{height: size, width: size}}

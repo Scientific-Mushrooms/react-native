@@ -27,46 +27,18 @@ export const MainRoutes = [
         screen: Screens.Widgets,
         children: [
             {
-                id: 'ProfileV1',
-                title: 'User Profile V1',
-                screen: Screens.ProfileV1,
-                children: []
-            },
-            {
-                id: 'ProfileV2',
-                title: 'User Profile V2',
-                screen: Screens.ProfileV2,
-                children: []
-            },
-            {
-                id: 'ProfileV3',
-                title: 'User Profile V3',
-                screen: Screens.ProfileV3,
-                children: []
-            },
-            {
-                id: 'ProfileSettings',
-                title: 'Profile Settings',
-                screen: Screens.ProfileSettings,
-                children: []
-            },
-            {
-                id: 'Notifications',
-                title: 'Notifications',
-                screen: Screens.Notifications,
-                children: []
-            },
-            {
-                id: 'Contacts',
-                title: 'Contacts',
-                screen: Screens.Contacts,
-                children: []
-            },
-            {
-                id: 'Feed',
-                title: 'Feed',
-                screen: Screens.Feed,
-                children: []
+                id: 'ConfessWall',
+                title: 'Confess Wall',
+                icon: FontAwesome.home,
+                screen: Screens.ConfessWall,
+                children: [
+                    {
+                        id: 'ConfessPost',
+                        title: 'Confess Post',
+                        screen: Screens.ConfessPost,
+                        children: []
+                    },
+                ]
             },
             
         ]
@@ -96,30 +68,6 @@ export const MainRoutes = [
                 screen: Screens.Profile,
                 children: []
             },
-            {
-                id: 'Articles3',
-                title: 'Article List V3',
-                screen: Screens.Articles3,
-                children: []
-            },
-            {
-                id: 'Articles4',
-                title: 'Article List V4',
-                screen: Screens.Articles4,
-                children: []
-            },
-            {
-                id: 'Blogposts',
-                title: 'Blogposts',
-                screen: Screens.Blogposts,
-                children: []
-            },
-            {
-                id: 'Article',
-                title: 'Article View',
-                screen: Screens.Article,
-                children: []
-            }
         ]
     },
 
