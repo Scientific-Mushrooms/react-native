@@ -21,10 +21,10 @@ export const MainRoutes = [
     },
 
     {
-        id: 'Utility',
-        title: 'Utility',
+        id: 'Widgets',
+        title: 'Widgets',
         icon: FontAwesome.cube,
-        screen: Screens.HomeScreen,
+        screen: Screens.Widgets,
         children: [
             {
                 id: 'ProfileV1',

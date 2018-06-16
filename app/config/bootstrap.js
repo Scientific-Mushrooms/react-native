@@ -179,7 +179,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkButton', 'tile', {
     borderRadius: 0,
     backgroundColor: 'transparent',
-    borderWidth: 0.5,
+    borderWidth: 0,
     borderColor: theme => theme.colors.border.base,
     container: {
       flexDirection: 'column'
