@@ -12,10 +12,10 @@ const mapStateToProps = state => ({
 
 export const TestRoutes = [
     {
-        id: 'LoginMenu',
+        id: 'Home',
         title: 'Home',
         icon: FontAwesome.home,
-        screen: Screens.LoginMenu,
+        screen: Screens.HomeScreen,
         children: []
     },
 
@@ -108,6 +108,7 @@ export const MainRoutes = [
                 screen: Screens.Feed,
                 children: []
             },
+            
         ]
     },
     {
@@ -229,9 +230,9 @@ export const MainRoutes = [
                 children: []
             },
             {
-                id: 'test',
+                id: 'Home',
                 title: 'Main',
-                screen: Screens.ProfileMainScreen,
+                screen: Screens.HomeScreen,
                 children: []
             },
         ]

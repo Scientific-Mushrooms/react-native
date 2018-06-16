@@ -1,60 +1,74 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from 'react-native';
-import { connect } from 'react-redux';
-import { increase, decrease, reset, login } from '../../redux/actions/action';
+import {  View, Text, StyleSheet, Image } from 'react-native';
 
-class Home extends Component {
+// import IconInput from 'IconInput'
+// import IconButton from 'IconButton'
+import InfoBar from 'InfoBar';
+// import ColorButton from 'ColorButton'
 
-    _onPressReset() {
-        this.props.dispatch(reset());
-    }
+import Swiper from 'react-native-swiper';
 
-    _onPressInc() {
-        this.props.dispatch(increase());
-    }
+export class HomeScreen extends Component {
+    username = '';
+    password = '';
+    static navigationOptions = {
+        header: null,
+    };
 
-    _onPressDec() {
-        this.props.dispatch(decrease());
-    }
+    onUsernameChanged = (newUsername) => {
+        this.username = newUsername;
+    };
 
-    _login() {
-        this.props.dispatch(login());
+    click = () => {
+        alert("11111");
     }
 
     render() {
         return (
-        <View style={styles.container}>
-                <Text style={styles.counter}>{this.props.counter.count}</Text>
-                
-                <TouchableOpacity style={styles.reset} onPress={()=>this._onPressReset()}>
-                <Text>归零</Text>
-                </TouchableOpacity>
+            <View style={styles.mainContainer}>
 
-                <TouchableOpacity style={styles.start} onPress={()=>this._onPressInc()}>
-                <Text>加1</Text>
-                </TouchableOpacity>
+                {/* <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    />
+                    
+                <IconInput 
+                    icon='settings' 
+                    placeholder='username' 
+                    onChangeText={this.onUsernameChanged}
+                    /> */}
 
-                <TouchableOpacity style={styles.stop} onPress={()=>this._onPressDec()}>
-                <Text>减{this.props.follow}</Text>
-                </TouchableOpacity>
+                <Text>This is home page</Text>
+                <InfoBar name='admin'/>
+                <Text>{this.username}</Text>
+              
+                <Swiper 
+                    style={styles.swiper} 
+                    showsButtons={false}
+                    loop={true}
+                    autoplay={true}
+                    autoplayTimeout={4} 
+                    paginationStyle={{ bottom: 100 }} 
+                    >
+                    <View style={styles.slide1}>
+                        <Image style={styles.image} source={require('../../images/avatars/test.png')} />
+                    </View>
+                    <View style={styles.slide2}>
+                        <Image style={styles.image} source={require('../../images/avatars/test.png')} />
+                    </View>
+                    <View style={styles.slide3}>
+                        <Image style={styles.image} source={require('../../images/avatars/test.png')} />
+                    </View>
+                </Swiper>
 
-                <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
-                <Text>{this.props.follow}</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.stop} onPress={()=>this._login("233333333")}>
-                <Text>{this.props.user.follow}</Text>
-                </TouchableOpacity>
-                
-        </View>
+                {/* <IconButton title='test' onPress={this.click}/> */}
+                {/* <ColorButton title='33' onPress={this.click}/> */}
+            </View>
         );
     }
 }
+
 
 const styles = StyleSheet.create({
 
@@ -62,13 +76,18 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'white'
     },
+
+    image: {
+        height: 150,
+        width: 300,
+    },
+
+    swiper: {
+       
+    },
+
 
 });
 
-const mapStateToProps = state => ({
-    user: state.user,
-    counter: state.counter,
-})
-
-export default connect(mapStateToProps)(Home);

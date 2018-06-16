@@ -39,13 +39,7 @@ class InfoBar extends Component {
                     <TouchableOpacity style={styles.topContainer} onPress={this.toLoginPage}> 
                         <Image source={require('../images/avatars/test.png')} style={styles.avatar}/>
                         <Text style={styles.name}>{this.props.name}</Text>
-                        <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
-                        {/* <Icon 
-                            name='chevron-right' 
-                            containerStyle={styles.arrow} 
-                            size={30}
-                            color='#e7e7e8'
-                            /> */}
+                        <RkText rkType='awesome hero' style={styles.arrow} >{FontAwesome.right}</RkText>
                     </TouchableOpacity>
     
                     <View style={styles.bottomContainer}>
@@ -116,7 +110,8 @@ const styles = StyleSheet.create({
 
     arrow: {
         position: 'absolute',
-        right: 0,
+        right: 15,
+
     },
 
     bottomContainer: {
