@@ -10,14 +10,18 @@ import {
     RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
+import { FontAwesome } from '../../assets/icons';
+import { Gallery } from '../../components/gallery';
+
 let moment = require('moment');
 
 const articles = [{
-    'id': 1,
+    'id': 3,
+    'avatar': require('../../data/img/photo1.png'),
     'photo': require('../../data/img/photo1.png'),
     'type': 'article',
     'time': -300,
-    'header': 'Plants Of Our Nature',
+    'author': 'Clavier',
     'text': 'Ferns are a very old group of plants. They first appeared on Earth in the middle Devonian Era about 360 million years ago, just before the Carboniferous Era. Most of the modern fern families we see today first appeared in the Late Cretaceous about 45 or 50 million years ago – during the age of the dinosaurs!',
     'comments': [{
         'id': 1,
@@ -66,99 +70,10 @@ const articles = [{
         'but they still retain the essential characteristics which makes them so attractive. ' +
         'A plane is claustrophobic and very noisy. Balloons are so gentle and majestic and silent when the burner’s not working.',
     'comments': []
-}, {
-    'id': 3,
-        'photo': require('../../data/img/photo3.png'),
-    'type': 'article',
-    'time': -2446,
-    'header': 'Sea World',
-    'text': 'The worlds oceans cover two thirds of our planet. As we take a dive from the rocks or paddle out from the beach, we are entering a place which is teeming with marine life. ' +
-        'From fish to crabs to octopuses or even sea creatures that have not yet been discovered, the oceans and its coastlines are an amazing and interesting foray of water wildlife.',
-    'comments': []
-}, {
-    'id': 4,
-        'photo': require('../../data/img/photo4.png'),
-    'type': 'article',
-    'time': -3519,
-    'header': 'Flowers',
-    'text': 'Flowers did not always exist; they first appeared 140 million years ago. Before that, ferns and cone bearing trees dominated the earth. ' +
-        'Several centuries ago in Holland, tulips were more valuable than gold. ' +
-        'Broccoli is actually a flower. Some plants such as orchids do not need soil to grow-they get all of their nutrients from the air.',
-    'comments': []
-}, {
-    'id': 5,
-        'photo': require('../../data/img/photo5.png'),
-    'type': 'article',
-    'time': -4592,
-    'header': 'Birds Of Our Planet',
-    'text': 'Birds have feathers, wings, lay eggs and are warm blooded. There are around 10000 different species of birds worldwide. ' +
-        'The Ostrich is the largest bird in the world. It also lays the largest eggs and has the fastest maximum running speed (97 kph). ' +
-        'Scientists believe that birds evolved from theropod dinosaurs. Birds have hollow bones which help them fly. ' +
-        'Some bird species are intelligent enough to create and use tools.',
-    'comments': []
-}, {
-    'id': 6,
-        'photo': require('../../data/img/photo6.png'),
-    'type': 'article',
-    'time': -5665,
-    'header': 'Mountains',
-    'text': 'Mountains make up about one-fifth of the world\'s landscape, and provide homes to at least one-tenth of the world\'s people. ' +
-        'The tallest known mountain in the solar system is Olympus Mons, located on Mars. ' +
-        'There are mountains under the surface of the sea! ' +
-        'Mountains occur more often in oceans than on land; some islands are the peaks of mountains coming out of the water.',
-    'comments': []
-}, {
-    'id': 7,
-        'photo': require('../../data/img/photo45.png'),
-    'type': 'fact',
-    'time': -5665,
-    'header': 'Smile and Frown',
-    'text': 'It takes 17 muscles to smile and 43 to frown.',
-    'comments': []
-}, {
-    'id': 8,
-        'photo': require('../../data/img/photo46.png'),
-    'type': 'fact',
-    'time': -8373,
-    'header': 'Interesting Fact',
-    'text': 'Dolphins sleep with one eye open.',
-    'comments': []
-}, {
-    'id': 9,
-        'photo': require('../../data/img/photo47.png'),
-    'type': 'fact',
-    'time': -565,
-    'header': 'Elephant',
-    'text': 'Elephant is one of the few mammals that can\'t jump.',
-    'comments': []
-}, {
-    'id': 10,
-        'photo': require('../../data/img/photo48.png'),
-    'type': 'fact',
-    'time': -52365,
-    'header': 'Cold Water',
-    'text': 'Cold water weighs less than hot water.',
-    'comments': []
-}, {
-    'id': 11,
-        'photo': require('../../data/img/photo49.png'),
-    'type': 'fact',
-    'time': -1295,
-    'header': 'Our Eyes',
-    'text': 'You blink over 10,000,000 times a year.',
-    'comments': []
-}, {
-    'id': 12,
-        'photo': require('../../data/img/photo17.png'),
-    'type': 'post',
-    'time': -300,
-    'title': 'My Little Kitten',
-    'text': 'I have got a cat. Her name is Matilda. She is quite old for a cat. She is eleven years old. Matilda is very' +
-        ' fluffy. Her back is black and her belly and chest are white. She also has a black muzzle with long white whiskers. ' +
-        'Her legs and paws are white. Matilda has big eyes. Her eyes are light green, but they become yellow in bright sunlight. I love my cat.',
-    'comments': []
-},
+}, 
 ];
+
+
 export class ConfessWall extends React.Component {
 
     static navigationOptions = {
@@ -183,15 +98,18 @@ export class ConfessWall extends React.Component {
                 activeOpacity={0.8}
                 onPress={() => this.props.navigation.navigate('ConfessPost', {id: info.item.id})}>
                 <RkCard style={styles.card}>
-                    <View rkCardHeader>
-                        <View>
-                            <RkText rkType='header4'>{info.item.header}</RkText>
+                   
+                    <View style={styles.topContainer}>
+                        <Image rkCardImg source={info.item.photo} style={styles.avatar} />
+                        <View style={styles.rightContainer}>
+                            <RkText rkType='header4'>{info.item.author}</RkText>
                             <RkText rkType='secondary2 hintColor'>{moment().add(info.item.time, 'seconds').fromNow()}</RkText>
                         </View>
                     </View>
-                    <Image rkCardImg source={info.item.photo}/>
+                    
 
                     <RkText rkType='primary3 bigLine' style={styles.text}>{info.item.text}</RkText>
+                    <Gallery items={[info.item.photo]} />
                     <View style={styles.footer} rkCardFooter>
                     <SocialBar/>
                     </View >
@@ -200,6 +118,21 @@ export class ConfessWall extends React.Component {
         )
     }
 
+    _renderHeader() {
+        return (
+            <View style={styles.header}>
+                <TouchableOpacity style={styles.button}>
+                    <RkText rkType='awesome icon'>{FontAwesome.paintBrush}   </RkText>
+                    <RkText>表白墙</RkText>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <RkText rkType='awesome icon'>{FontAwesome.paw}   </RkText>
+                    <RkText>匿名墙</RkText>
+                </TouchableOpacity >
+            </View>
+        )
+    } 
+
     render() {
         return (
             <FlatList
@@ -207,6 +140,7 @@ export class ConfessWall extends React.Component {
                 renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.container}
+                ListHeaderComponent={this._renderHeader}
                 />
         )
     }
@@ -216,12 +150,25 @@ let styles = RkStyleSheet.create(theme => ({
 
     container: {
         backgroundColor: theme.colors.screen.scroll,
-        paddingHorizontal: 14,
-        paddingVertical: 8
+    },
+
+    header: {
+        width: '100%',
+        height: 50,
+        flexDirection: 'row'
+    },
+
+    button: {
+        width: '50%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        backgroundColor: 'white',
     },
 
     card: {
-        marginVertical: 8
+        marginBottom: 8
     },
 
     footer: {
@@ -235,6 +182,28 @@ let styles = RkStyleSheet.create(theme => ({
     text: {
         marginLeft: 5,
         marginRight: 5
+    },
+
+    images: {
+        marginLeft: 5,
+        marginRight: 5
+    },
+
+    topContainer: {
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+
+    avatar: {
+        height: 40,
+        width: 40,
+        borderRadius: 20,
+        marginLeft: 5,
+        marginRight: 10
+    },
+
+    rightContainer: {
+        flexDirection: 'column'
     }
 
 }));

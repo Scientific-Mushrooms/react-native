@@ -39,6 +39,8 @@ export const FontAwesome = {
     steam: String.fromCharCode(61878),
     cog: String.fromCharCode(61459),
     book: String.fromCharCode(61485),
+    paintBrush: String.fromCharCode(61948),
+    paw: String.fromCharCode(61872),
 };
 
 
