@@ -15,10 +15,10 @@ export default class IconButton extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
-                <RkText rkType='awesome hero' style={styles.icon}>{this.props.icon}</RkText>
+                <RkText rkType='awesome icon' style={styles.icon}>{this.props.icon}</RkText>
                 <View style={styles.rightContainer}>
                     <Text style={styles.title}>{this.props.title}</Text>
-                    <RkText rkType='awesome hero' style={styles.arrow}>{FontAwesome.right}</RkText>
+                    <RkText rkType='awesome icon' style={styles.arrow}>{FontAwesome.right}</RkText>
                 </View>
             </TouchableOpacity>
         );
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: '100%',
         alignItems: 'center',
+        justifyContent: 'center',
     },
 
     rightContainer: {
@@ -44,13 +45,15 @@ const styles = StyleSheet.create({
     },
 
     icon: {
-        height: 40,
-        width: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 10,
+        marginRight: 10,
     },
 
     arrow: {
-        height: 40,
-        width: 40,
+        marginLeft: 10,
+        marginRight: 15,
         position: 'absolute',
         right: 0,
     },

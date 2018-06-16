@@ -33,6 +33,11 @@ export const FontAwesome = {
   user: String.fromCharCode(61447),
   envelope: String.fromCharCode(61664),
   cube: String.fromCharCode(61874),
+
+  qq: String.fromCharCode(61910),
+  weixin: String.fromCharCode(61911),
+  steam: String.fromCharCode(61878),
+  cog: String.fromCharCode(61459),
 };
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from "react-native";
-import { DrawerNavigator, StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import {withRkTheme} from 'react-native-ui-kitten';
 import { data } from './data'
@@ -15,6 +15,7 @@ import track from './config/analytics';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+console.disableYellowBox = true
 bootstrap();
 data.populateData();
 

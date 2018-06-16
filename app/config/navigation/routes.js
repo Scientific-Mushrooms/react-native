@@ -1,4 +1,4 @@
-import {FontIcons, FontAwesome} from '../../assets/icons';
+import { FontAwesome } from '../../assets/icons';
 import * as Screens from '../../screens/index';
 import _ from 'lodash';
 import { connect } from 'react-redux';
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 })
 
 
-export const TestRoutes = [
+export const MainRoutes = [
+
     {
         id: 'Home',
         title: 'Home',
@@ -20,51 +21,10 @@ export const TestRoutes = [
     },
 
     {
-        id: 'WalkthroughMenu',
+        id: 'Utility',
         title: 'Utility',
         icon: FontAwesome.cube,
-        screen: Screens.WalkthroughMenu,
-        children: []
-    },
-
-    {
-        id: 'OtherMenu',
-        title: 'Message',
-        icon: FontAwesome.envelope,
-        screen: Screens.OtherMenu,
-        children: [
-            {
-                id: 'Settings',
-                title: 'Settings',
-                screen: Screens.Settings,
-                children: []
-            },
-        ]
-    },
-    {
-        id: 'Themes',
-        title: 'Profile',
-        icon: FontAwesome.user,
-        screen: Screens.Themes,
-        children: []
-    },
-];
-
-
-
-export const MainRoutes = [
-    {
-        id: 'LoginMenu',
-        title: 'Auth',
-        icon: FontIcons.login,
-        screen: Screens.LoginMenu,
-        children: []
-    },
-    {
-        id: 'SocialMenu',
-        title: 'Social',
-        icon: FontIcons.profile,
-        screen: Screens.SocialMenu,
+        screen: Screens.HomeScreen,
         children: [
             {
                 id: 'ProfileV1',
@@ -111,11 +71,12 @@ export const MainRoutes = [
             
         ]
     },
+
     {
-        id: 'ArticlesMenu',
-        title: 'Articles',
-        icon: FontIcons.article,
-        screen: Screens.ArticleMenu,
+        id: 'OtherMenu',
+        title: 'Message',
+        icon: FontAwesome.envelope,
+        screen: Screens.HomeScreen,
         children: [
             {
                 id: 'Articles1',
@@ -127,6 +88,12 @@ export const MainRoutes = [
                 id: 'Articles2',
                 title: 'Article List V2',
                 screen: Screens.Articles2,
+                children: []
+            },
+            {
+                id: 'Profile',
+                title: 'Article List V2',
+                screen: Screens.Profile,
                 children: []
             },
             {
@@ -155,60 +122,18 @@ export const MainRoutes = [
             }
         ]
     },
+
+    
     {
-        id: 'MessagingMenu',
-        title: 'Messaging',
-        icon: FontIcons.mail,
-        screen: Screens.MessagingMenu,
+        id: 'Profile',
+        title: 'Profile',
+        icon: FontAwesome.user,
+        screen: connect(mapStateToProps)(Screens.Profile),
         children: [
             {
-                id: 'Chat',
-                title: 'Chat',
-                screen: Screens.Chat,
-                children: []
-            },
-            {
-                id: 'ChatList',
-                title: 'Chat List',
-                screen: Screens.ChatList,
-                children: []
-            },
-            {
-                id: 'Comments',
-                title: 'Comments',
-                screen: Screens.Comments,
-                children: []
-            },
-        ]
-    },
-    {
-        id: 'DashboardsMenu',
-        title: 'Dashboards',
-        icon: FontIcons.dashboard,
-        screen: Screens.DashboardMenu,
-        children: [{
-            id: 'Dashboard',
-            title: 'Dashboard',
-            screen: Screens.Dashboard,
-            children: []
-        },]
-    },
-    {
-        id: 'WalkthroughMenu',
-        title: 'Walkthroughs',
-        icon: FontIcons.mobile,
-        screen: Screens.WalkthroughMenu,
-        children: [
-            {
-            id: 'Walkthrough',
-            title: 'Walkthrough',
-            screen: Screens.WalkthroughScreen,
-            children: []
-            },
-            {
-                id: 'Login2',
-                title: 'Login V2',
-                screen: Screens.LoginV2,
+                id: 'GridV1',
+                title: 'Grid Menu V1',
+                screen: Screens.GridV1,
                 children: []
             },
             {
@@ -218,111 +143,34 @@ export const MainRoutes = [
                 children: []
             },
             {
-                id: 'password',
-                title: 'Password Recovery',
-                screen: Screens.PasswordRecovery,
+                id: 'Login',
+                title: 'Login',
+                screen: Screens.Login,
                 children: []
             },
+
             {
                 id: 'Login',
-                title: 'Login Screen',
-                screen: connect(mapStateToProps)(Screens.ProfileMainScreen),
+                title: 'Login',
+                screen: Screens.Login,
                 children: []
             },
-            {
-                id: 'Home',
-                title: 'Main',
-                screen: Screens.HomeScreen,
-                children: []
-            },
-        ]
-    },
-    {
-        id: 'EcommerceMenu',
-        title: 'Ecommerce',
-        icon: FontIcons.card,
-        screen: Screens.EcommerceMenu,
-        children: [
-            {
-                id: 'Cards',
-                title: 'Cards',
-                icon: FontIcons.card,
-                screen: Screens.Cards,
-                children: []
-            },
-            {
-                id: 'AddToCardForm',
-                title: 'Add Card Form',
-                icon: FontIcons.addToCardForm,
-                screen: Screens.AddToCardForm,
-                children: []
-            },
-        ]
-    },
-    {
-        id: 'NavigationMenu',
-        icon: FontIcons.navigation,
-        title: 'Navigation',
-        screen: Screens.NavigationMenu,
-        children: [
-            {
-                id: 'GridV1',
-                title: 'Grid Menu V1',
-                screen: Screens.GridV1,
-                children: []
-            },
-            {
-                id: 'GridV2',
-                title: 'Grid Menu V2',
-                screen: Screens.GridV2,
-                children: []
-            },
-            {
-                id: 'List',
-                title: 'List Menu',
-                screen: Screens.ListMenu,
-                children: []
-            },
-            {
-                id: 'Side',
-                title: 'Side Menu',
-                action: 'DrawerOpen',
-                screen: Screens.SideMenu,
-                children: []
-            }
-        ]
-    },
-    {
-        id: 'OtherMenu',
-        title: 'Other',
-        icon: FontIcons.other,
-        screen: Screens.OtherMenu,
-        children: [
+
             {
                 id: 'Settings',
                 title: 'Settings',
                 screen: Screens.Settings,
                 children: []
-            }
+            },
+
         ]
     },
-    {
-        id: 'Themes',
-        title: 'Themes',
-        icon: FontIcons.theme,
-        screen: Screens.Themes,
-        children: []
-    },
+
 ];
 
 
 let menuRoutes = _.cloneDeep(MainRoutes);
-menuRoutes.unshift({
-    id: 'GridV2',
-    title: 'Start',
-    screen: Screens.GridV2,
-    children: []
-},);
+
 
 export const MenuRoutes = menuRoutes;
 

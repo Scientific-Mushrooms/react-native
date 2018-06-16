@@ -47,6 +47,10 @@ export let bootstrap = () => {
     fontSize: scale(33)
   });
 
+  RkTheme.setType('RkText', 'icon', {
+    fontSize: scale(25)
+  });
+
   RkTheme.setType('RkText', 'menuIcon', {
     fontSize: 44
   });

@@ -2,9 +2,8 @@ import React from 'react';
 import { TouchableHighlight, View, StyleSheet } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { RkStyleSheet, RkText, RkTheme } from 'react-native-ui-kitten';
+import { MainRoutes } from '../../config/navigation/routes';
 
-import { TestRoutes } from '../../config/navigation/routes';
-import { FontIcons, FontAwesome } from '../../assets/icons';
 
 export class BottomMenu extends React.Component {
 
@@ -25,7 +24,7 @@ export class BottomMenu extends React.Component {
 
     render() {
 
-        let menu = TestRoutes.map((route, index) => {
+        let menu = MainRoutes.map((route, index) => {
             return (
                 <TouchableHighlight
                     style={styles.container}

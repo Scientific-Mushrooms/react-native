@@ -18,10 +18,10 @@ import {GradientButton} from '../../components/gradientButton';
 import {scaleVertical} from '../../utils/scale';
 
 
-export class LoginV2 extends React.Component {
+export class Login extends React.Component {
 
     static navigationOptions = {
-        header: null
+        tabBarVisible: false
     };
 
     constructor(props) {
@@ -45,7 +45,7 @@ export class LoginV2 extends React.Component {
                 <View style={styles.header}>
                     {renderIcon()}
                     <RkText rkType='light h1'>React Native</RkText>
-                    <RkText rkType='logo h0'>UI Kitten</RkText>
+                    <RkText rkType='logo h0'>Learn</RkText>
                 </View>
                 <View style={styles.content}>
                     <View>
@@ -60,13 +60,13 @@ export class LoginV2 extends React.Component {
                     </View>
                     <View style={styles.buttons}>
                         <RkButton style={styles.button} rkType='social'>
-                            <RkText rkType='awesome hero'>{FontAwesome.twitter}</RkText>
+                            <RkText rkType='awesome hero'>{FontAwesome.qq}</RkText>
                         </RkButton>
                         <RkButton style={styles.button} rkType='social'>
-                            <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
+                            <RkText rkType='awesome hero'>{FontAwesome.weixin}</RkText>
                         </RkButton>
                         <RkButton style={styles.button} rkType='social'>
-                            <RkText rkType='awesome hero'>{FontAwesome.facebook}</RkText>
+                            <RkText rkType='awesome hero'>{FontAwesome.steam}</RkText>
                         </RkButton>
                     </View>
 

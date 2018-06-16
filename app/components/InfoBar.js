@@ -27,7 +27,7 @@ class InfoBar extends Component {
                     <Text style={styles.intro}>一航战，出击！</Text>
                     <Text style={styles.intro}>喵喵喵？？？</Text>
                     <TouchableOpacity style={styles.button} onPress={this.toLoginPage}>
-                        <Text>LOG IN</Text>
+                        <Text>LOGIN</Text>
                     </TouchableOpacity>
                 </View>
 
