@@ -20,6 +20,7 @@
     "react": "16.0.0",
     "react-native": "0.51.0",
     "react-native-elements": "^0.19.1",
+    "react-native-image-crop-picker": "^0.20.3",
     "react-native-keyboard-spacer": "0.4.1",
     "react-native-linear-gradient": "2.4.0",
     "react-native-progress-bar": "0.1.2",
