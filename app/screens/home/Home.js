@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image,  Button } from 'react-native';
-import { ImagePicker } from 'expo';
+// import { ImagePicker } from 'expo';
 import ClavierSwiper from 'clavier-swiper';
+import ImagePicker from '../../components/imagePicker/imagePicker'
+
+
 
 async function getLocationAsync() {
     const { Location, Permissions } = Expo;
@@ -12,6 +15,7 @@ async function getLocationAsync() {
         throw new Error('Location permission not granted');
     }
 }
+
 async function test2() {
     const { Permissions } = Expo;
     const { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL);
@@ -35,6 +39,7 @@ export class HomeScreen extends Component {
 
 
     askPermissionsAsync = async () => {
+        const { Permissions } = Expo;
         await Permissions.askAsync(Permissions.CAMERA);
         await Permissions.askAsync(Permissions.CAMERA_ROLL);
         // you would probably do something to verify that permissions
@@ -67,6 +72,7 @@ export class HomeScreen extends Component {
         let { image } = this.state;
         return (
             <View style={styles.mainContainer}>
+            <ImagePicker/>
                 <Button title="launchCameraAsync" onPress={this.useCameraHandler} />
                 <Button
                     title="launchImageLibraryAsync"
