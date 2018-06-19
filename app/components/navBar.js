@@ -18,6 +18,13 @@ export class NavBar extends React.Component {
     }
 
     _renderRight(headerRight) {
+
+        if (headerRight) {
+            return (
+                <View style={styles.right}>{headerRight}</View>
+            )
+        }
+
         let windowWidth = Dimensions.get('window').width;
         const width = this.state.width
             ? (windowWidth - this.state.width) / 2

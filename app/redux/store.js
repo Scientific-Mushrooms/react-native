@@ -17,7 +17,7 @@ const preloadedState = {
     },
 
     photos: {
-        photos: [{photos: '2312'}]
+        photos: []
     }
 }
 

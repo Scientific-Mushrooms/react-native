@@ -1,6 +1,11 @@
 import {scale, scaleVertical} from '../utils/scale'
 
 const Colors = {
+
+  feature: '#c3473a',
+  background: '#fbfcfd',
+  button: '#f8eceb',
+
   accent: '#ff2824',
   primary: '#f64e59',
   success: '#3bd555',
@@ -13,7 +18,7 @@ const Colors = {
   hintForeground: '#969696',
   highlight: '#bcbcbc',
 
-  background: '#ffffff',
+  
   alterBackground: '#f2f2f2',
   overlayBackground: '#00000057',
   neutralBackground: '#f2f2f2',
@@ -85,6 +90,7 @@ export const KittenTheme = {
     facebook: Colors.facebook,
     brand: Colors.accent,
     text: {
+      button: Colors.button,
       base: Colors.foreground,
       secondary: Colors.secondaryForeground,
       accent: Colors.accent,
@@ -102,7 +108,8 @@ export const KittenTheme = {
       alter: Colors.alterBackground,
       scroll: Colors.alterBackground,
       bold: Colors.alterBackground,
-      overlay: Colors.overlayBackground
+      overlay: Colors.overlayBackground,
+      feature: Colors.feature,
     },
     button: {
       back: Colors.background,
