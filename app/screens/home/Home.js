@@ -3,10 +3,13 @@ import { View, Text, StyleSheet, Image,  Button, ScrollView } from 'react-native
 // import { ImagePicker } from 'expo';
 import ClavierSwiper from 'clavier-swiper';
 import ImagePicker from '../../components/imagePicker/imagePicker'
-import Lightbox from 'react-native-lightbox';
+
 
 import { Modal } from 'react-native';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import { addPhoto } from '../../redux/actions/action';
+
+
 
 const images = [{
     // Simplest usage.
@@ -24,6 +27,13 @@ const images = [{
 
 
 export class HomeScreen extends Component {
+
+    static navigationOptions = {
+        tabBarVisible: false,
+        title: 'Confess Wall',
+        headerLeft: <Text>23</Text>
+    };
+    
     state = {
         index: 0,
         modalVisible: false
@@ -34,11 +44,12 @@ export class HomeScreen extends Component {
 
         return (
             <View style={styles.mainContainer}>
+                <Text>2233s{JSON.stringify(this.props.photos)}</Text>
             <ImagePicker/>
             
                 <Button
                     title="Choosedsfadsf"
-                    onPress={() => this.setState({modalVisible: true})}/>
+                    onPress={() => this.props.dispatch(addPhoto( {sudh: "asdasd"} ))}/>
 
 
                 <View style={{

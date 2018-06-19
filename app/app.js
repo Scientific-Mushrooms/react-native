@@ -30,7 +30,7 @@ function getCurrentRouteName(navigationState) {
     return route.routeName;
 }
 
-// let SideMenu = withRkTheme(Screens.SideMenu);
+
 let SideMenu = withRkTheme(Screens.BottomMenu);
 
 const KittenApp = StackNavigator({

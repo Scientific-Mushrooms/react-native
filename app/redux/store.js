@@ -9,11 +9,15 @@ const preloadedState = {
         factor: 1
     },
 
-    user : {
+    user: {
         name: null,
         post: 0,
         follower: 1,
         following: 3,
+    },
+
+    photos: {
+        photos: [{photos: '2312'}]
     }
 }
 

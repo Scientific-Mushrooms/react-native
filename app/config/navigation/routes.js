@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
     name: state.user.name,
-    count: state.counter.count
+    count: state.counter.count,
+    photos: state.photos.photos
 })
 
 
@@ -15,14 +16,9 @@ export const MainRoutes = [
         id: 'Home',
         title: 'Home',
         icon: FontAwesome.home,
-        screen: Screens.HomeScreen,
+        screen: connect(mapStateToProps)(Screens.HomeScreen),
         children: [
-            {
-                id: 'Photo',
-                title: '233333',
-                screen: Screens.PhotoBrowserScene,
-                children: []
-            },
+        
 
            
         ]

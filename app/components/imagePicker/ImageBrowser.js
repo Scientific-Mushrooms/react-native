@@ -15,6 +15,8 @@ const { width } = Dimensions.get('window')
 
 export default class ImageBrowser extends React.Component {
 
+    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -48,6 +50,7 @@ export default class ImageBrowser extends React.Component {
         CameraRoll
           .getPhotos(params)
           .then(this.processPhotos)
+        
     }
 
     processPhotos = (r) => {
