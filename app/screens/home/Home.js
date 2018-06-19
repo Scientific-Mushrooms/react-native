@@ -57,6 +57,9 @@ export class HomeScreen extends Component {
                 <Button
                     title="gggggggg"
                     onPress={() => this.setState({ modalVisible: true })} />
+                <Button
+                    title="go to write"
+                    onPress={() => this.props.navigation.navigate('ConfessWrite')} />
 
                 <Modal visible={this.state.modalVisible}
                     transparent={true}

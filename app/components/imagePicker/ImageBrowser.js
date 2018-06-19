@@ -119,11 +119,17 @@ export default class ImageBrowser extends React.Component {
             <View style={styles.container}>
                 <View style={styles.padding}></View>
                 <View style={styles.headerContainer}>
-                    <TouchableHighlight onPress={() => this.props.navigation.goBack()} style={styles.left}>
+                    <TouchableHighlight 
+                        onPress={() => this.props.navigation.goBack()} 
+                        style={styles.left}
+                        underlayColor='transparent'>
                         <RkText style={styles.text}>Back</RkText>
                     </TouchableHighlight>
                     <RkText style={styles.text}>{Object.keys(this.state.selected).length} selected</RkText>
-                    <TouchableHighlight onPress={() => this.test()} style={styles.choose} style={styles.right}>
+                    <TouchableHighlight
+                        onPress={() => this.test()} 
+                        style={styles.choose} style={styles.right}
+                        underlayColor='transparent'>
                         <RkText style={styles.text}>Choose</RkText>
                     </TouchableHighlight>
                 </View>
@@ -157,17 +163,6 @@ let styles = RkStyleSheet.create(theme => ({
         backgroundColor: theme.colors.screen.feature
     },
 
-    imageContainer: { 
-        width: width / 3, 
-        height: width / 3
-    },
-
-    image: {
-        width: '100%', 
-        height: '100%',
-        borderColor: theme.colors.screen.feature,
-    },
-
     left: {
         position: 'absolute',
         left: 15
@@ -176,6 +171,17 @@ let styles = RkStyleSheet.create(theme => ({
     right: {
         position: 'absolute',
         right: 15
+    },
+
+    imageContainer: {
+        width: width / 3,
+        height: width / 3
+    },
+
+    image: {
+        width: '100%',
+        height: '100%',
+        borderColor: theme.colors.screen.feature,
     },
 
     text: {

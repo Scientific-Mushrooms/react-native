@@ -48,6 +48,12 @@ export const MainRoutes = [
                         screen: Screens.ConfessPost,
                         children: []
                     },
+                    {
+                        id: 'ConfessWrite',
+                        title: 'Confess Write',
+                        screen: Screens.ConfessWrite,
+                        children: []
+                    },
                 ]
             },
             
