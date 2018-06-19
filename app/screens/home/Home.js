@@ -32,15 +32,10 @@ export class HomeScreen extends Component {
     };
     
 
-    renderImage(xx) {
-        
-         
-                return (
-                        <Image style={styles.image} source={{ uri: xx }}/>
-   
-                )
-            
-        
+    renderImage(uri) {
+        return (
+            <Image style={styles.image} source={{ uri: uri }}/>
+        )
     }
 
     render() {
@@ -49,7 +44,7 @@ export class HomeScreen extends Component {
             <View style={styles.mainContainer}>
                 <Text>{JSON.stringify(this.props.photos)}</Text>
 
-                {this.props.photos.map((photo) => this.renderImage(photo))}
+                {/* {this.props.photos.map((photo) => this.renderImage(photo))} */}
   
                 <Button
                     title="Choosedsfadsf"

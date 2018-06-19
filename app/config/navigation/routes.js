@@ -51,7 +51,7 @@ export const MainRoutes = [
                     {
                         id: 'ConfessWrite',
                         title: 'Confess Write',
-                        screen: Screens.ConfessWrite,
+                        screen: connect(mapStateToProps)(Screens.ConfessWrite),
                         children: []
                     },
                 ]

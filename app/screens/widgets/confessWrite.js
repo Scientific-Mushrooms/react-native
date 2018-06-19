@@ -1,11 +1,10 @@
 import React from 'react';
 import {
-    ScrollView,
     Image,
     View,
-    TouchableOpacity,
     TouchableHighlight,
-    TextInput
+    TextInput,
+    Text
 } from 'react-native';
 import {
     RkCard,
@@ -14,11 +13,7 @@ import {
     RkTextInput,
 } from 'react-native-ui-kitten';
 import { data } from '../../data';
-import { Avatar } from '../../components';
-import { SocialBar } from '../../components';
 import { UIConstants } from '../../config/appConstants';
-
-let moment = require('moment');
 
 
 export class ConfessWrite extends React.Component {
@@ -33,6 +28,19 @@ export class ConfessWrite extends React.Component {
         let { params } = this.props.navigation.state;
         let id = params ? params.id : 1;
         this.data = data.getArticle(id);
+    }
+
+    renderImage(uri) {
+        return (
+            <View>
+                <TouchableHighlight>
+                    <Image style={styles.image} source={{ uri: uri }} />
+                </TouchableHighlight>
+                <TouchableHighlight>
+                    <Text>x</Text>
+                </TouchableHighlight>
+            </View>
+        )
     }
 
     render() {
@@ -50,15 +58,22 @@ export class ConfessWrite extends React.Component {
 
 
                 
-                <View>
+                <View style={styles.inputContainer}>
+                    
+                    <TextInput style={styles.input} placeholder='2333333' multiline={true}/>
 
-                    <TextInput 
-                        style={styles.input}
-                        placeholder='2333333'
-                        multiline={true}
-                        />
+                    <View style={styles.imageContainer}>
+                    
+                        {this.props.photos.map((photo) => this.renderImage(photo))}
 
-                        
+                        <View>
+                            <TouchableHighlight>
+                                <Text>x</Text>
+                            </TouchableHighlight>
+                        </View>
+
+                    </View>
+                  
                 </View>
                 
             </View>
@@ -70,7 +85,8 @@ let styles = RkStyleSheet.create(theme => ({
 
     container: {
         flex: 1,
-        backgroundColor: theme.colors.screen.background
+        backgroundColor: theme.colors.screen.background,
+        alignItems: 'center',
     },
 
     padding: {
@@ -102,21 +118,30 @@ let styles = RkStyleSheet.create(theme => ({
         color: theme.colors.text.button
     },
 
+    inputContainer: {
+        width: '95%'
+    },
+
     input: {
         width: '100%',
         height: 100,
         backgroundColor: theme.colors.screen.background,
         margintop: 20,
-        marginHorizontal: 15,
         fontSize: 20
     },
 
-    root: {
-        backgroundColor: theme.colors.screen.base
+    imageContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        width: '100%',
+        height: 100,
+
     },
 
-    title: {
-        marginBottom: 5
-    },
+    image: {
+        height: 100,
+        width: 100,
+    }
+
 
 }));
