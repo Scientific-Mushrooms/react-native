@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, ScrollView,Image} from 'react-native';
 import ImageBrowser from './ImageBrowser';
-
+import Lightbox from 'react-native-lightbox';
 
 export default class ImagePicker extends React.Component {
 
@@ -25,11 +25,7 @@ export default class ImagePicker extends React.Component {
 
     renderImage(item, i) {
         return(
-            <Image
-                style={{height: 100, width: 100}}
-                source={{uri: item.file}}
-                key={i}
-                />
+            <Image style={{height: 200, width: 200}} source={{uri: item.file}} key={i} />
         )
     }
 
@@ -41,15 +37,20 @@ export default class ImagePicker extends React.Component {
 
         return (
             <View style={styles.container}>
+                
                 <Button
                     title="Choose Images"
                     onPress={() => this.setState({imageBrowserOpen: true})}
                     />
                 <Text>This is an example of a</Text>
                 <Text>multi image selector using expo</Text>
+            
                 <ScrollView>
                     {this.state.photos.map((item,i) => this.renderImage(item,i))}
                 </ScrollView>
+                
+                   
+       
             </View>
         );
     }
@@ -64,5 +65,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    
+
+    contain: {
+        flex: 1,
+        height: 150,
+    },
+
 });

@@ -3,7 +3,6 @@ import * as Screens from '../../screens/index';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 
-
 const mapStateToProps = state => ({
     name: state.user.name,
     count: state.counter.count
@@ -17,7 +16,16 @@ export const MainRoutes = [
         title: 'Home',
         icon: FontAwesome.home,
         screen: Screens.HomeScreen,
-        children: []
+        children: [
+            {
+                id: 'Photo',
+                title: '233333',
+                screen: Screens.PhotoBrowserScene,
+                children: []
+            },
+
+           
+        ]
     },
 
     {
