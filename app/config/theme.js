@@ -4,6 +4,7 @@ const Colors = {
 
   feature: '#c3473a',
   background: '#fbfcfd',
+  base: '#eff0f0',
   button: '#f8eceb',
 
   accent: '#ff2824',
@@ -104,7 +105,8 @@ export const KittenTheme = {
       placeholder: Colors.secondaryForeground,
     },
     screen: {
-      base: Colors.background,
+      base: Colors.base,
+      background: Colors.background,
       alter: Colors.alterBackground,
       scroll: Colors.alterBackground,
       bold: Colors.alterBackground,
