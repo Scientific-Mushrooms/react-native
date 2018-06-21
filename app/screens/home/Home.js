@@ -44,17 +44,10 @@ export class HomeScreen extends Component {
             <View style={styles.mainContainer}>
                 <Text>{JSON.stringify(this.props.photos)}</Text>
 
-                {/* {this.props.photos.map((photo) => this.renderImage(photo))} */}
-  
-                <Button
-                    title="Choosedsfadsf"
-                    onPress={() => this.props.navigation.navigate('ImageBrowser')}/>
                 <Button
                     title="gggggggg"
                     onPress={() => this.setState({ modalVisible: true })} />
-                <Button
-                    title="go to write"
-                    onPress={() => this.props.navigation.navigate('ConfessWrite')} />
+
 
                 <Modal visible={this.state.modalVisible}
                     transparent={true}

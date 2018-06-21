@@ -11,13 +11,13 @@ import {
 import IconInput from 'IconInput';
 import Header from 'Header';
 import ColorButton from 'ColorButton';
-import BaseComponent from 'BaseComponent';
+
 
 import { connect } from 'react-redux';
 import { logout, login } from '../../redux/actions/action';
 
 
-class LoginScreen extends BaseComponent {
+class LoginScreen extends Component {
 
     login = () => {
 

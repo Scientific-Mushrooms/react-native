@@ -2,10 +2,10 @@ import { FontAwesome } from '../../assets/icons';
 import * as Screens from '../../screens/index';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import ImageBrowser from '../../components/imagePicker/ImageBrowser';
+
 
 const mapStateToProps = state => ({
-    name: state.user.name,
+    user: state.user.info,
     count: state.counter.count,
     photos: state.photos.photos
 })
@@ -21,7 +21,7 @@ export const MainRoutes = [
             {
                 id: 'ImageBrowser',
                 title: 'Confess Post',
-                screen: connect(mapStateToProps)(ImageBrowser),
+                screen: connect(mapStateToProps)(Screens.ImageBrowser),
                 children: []
             },
         
@@ -95,12 +95,6 @@ export const MainRoutes = [
         screen: connect(mapStateToProps)(Screens.Profile),
         children: [
             {
-                id: 'GridV1',
-                title: 'Grid Menu V1',
-                screen: Screens.GridV1,
-                children: []
-            },
-            {
                 id: 'SignUp',
                 title: 'Sign Up',
                 screen: Screens.SignUp,
@@ -109,14 +103,7 @@ export const MainRoutes = [
             {
                 id: 'Login',
                 title: 'Login',
-                screen: Screens.Login,
-                children: []
-            },
-
-            {
-                id: 'Login',
-                title: 'Login',
-                screen: Screens.Login,
+                screen: connect(mapStateToProps)(Screens.Login),
                 children: []
             },
 

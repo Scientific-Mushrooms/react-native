@@ -20,7 +20,7 @@ class InfoBar extends Component {
 
     render() {
 
-        if (this.props.name === null) {
+        if (this.props.user === null) {
             return (
 
                 <View style={styles.container}>
@@ -38,7 +38,7 @@ class InfoBar extends Component {
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.topContainer} onPress={this.toLoginPage}> 
                         <Image source={require('../images/avatars/test.png')} style={styles.avatar}/>
-                        <Text style={styles.name}>{this.props.name}</Text>
+                        <Text style={styles.name}>{this.props.user.username}</Text>
                         <RkText rkType='awesome hero' style={styles.arrow} >{FontAwesome.right}</RkText>
                     </TouchableOpacity>
     

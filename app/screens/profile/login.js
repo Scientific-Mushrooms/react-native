@@ -16,7 +16,7 @@ import {
 import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/gradientButton';
 import {scaleVertical} from '../../utils/scale';
-
+import { login, addPhoto } from '../../redux/actions/action'
 
 export class Login extends React.Component {
 
@@ -28,6 +28,49 @@ export class Login extends React.Component {
         super(props);
     }
 
+    ip = 'http://192.168.239.102:8080'
+
+    _login = () => {
+
+        if (this.account == '' || this.password == '') {
+            alert('can not be empty');
+        } else {
+            let form = new FormData();
+            form.append("phoneNumber", this.account);
+            form.append("password", this.password);
+
+            this.post(this.ip + '/api/user/login', form).then((result) => {
+
+                if (result.status == 'fail') {
+                    alert(result.description);
+
+                } else {
+                    this.props.dispatch(login(result.detail));
+                    this.props.navigation.navigate('Profile');
+                }
+            })
+        }
+    };
+
+    post = (url, form) => {
+        return fetch(url, { method: 'POST', body: form })
+            .then((response) => (response.json()))
+            .catch((error) => { console.error(error); });
+    }
+
+    account = '';
+
+    username = '';
+
+
+    onAccountChanged = (newAccount) => {
+        this.account = newAccount;
+    };
+
+    onPasswordChanged = (newPassword) => {
+        this.password = newPassword;
+    };
+
     render() {
 
         let renderIcon = () => {
@@ -37,27 +80,40 @@ export class Login extends React.Component {
         };
 
         return (
-            <RkAvoidKeyboard
-                style={styles.screen}
+            <RkAvoidKeyboard 
+                style={styles.screen} 
                 onStartShouldSetResponder={ (e) => true}
                 onResponderRelease={ (e) => Keyboard.dismiss()}
                 >
+
                 <View style={styles.header}>
                     {renderIcon()}
                     <RkText rkType='light h1'>React Native</RkText>
                     <RkText rkType='logo h0'>Learn</RkText>
                 </View>
+
                 <View style={styles.content}>
                     <View>
-                      <RkTextInput rkType='rounded' placeholder='Username'/>
-                      <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-                      <GradientButton 
-                          style={styles.save} 
-                          rkType='large' 
-                          text='LOGIN' 
-                          onPress={() => { this.props.navigation.goBack() }}
-                          />
+
+                        <RkTextInput 
+                            rkType='rounded' 
+                            placeholder='username' 
+                            onChangeText={this.onAccountChanged}
+                            />
+                        <RkTextInput 
+                            rkType='rounded' 
+                            placeholder='Password' 
+                            secureTextEntry={true}
+                            onChangeText={this.onPasswordChanged} />
+
+                        <GradientButton 
+                            style={styles.save} 
+                            rkType='large' 
+                            text='LOGIN' 
+                            onPress={this._login}
+                            />
                     </View>
+
                     <View style={styles.buttons}>
                         <RkButton style={styles.button} rkType='social'>
                             <RkText rkType='awesome hero'>{FontAwesome.qq}</RkText>

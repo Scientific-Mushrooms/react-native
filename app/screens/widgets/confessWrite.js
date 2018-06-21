@@ -34,10 +34,17 @@ export class ConfessWrite extends React.Component {
     renderImage(uri) {
         return (
             <View style={styles.grid}>
-                <TouchableHighlight>
+                <TouchableHighlight 
+                    onPress={() => this.props.navigation.navigate('ImageBrowser')}
+                    underlayColor='transparent'
+                    >
                     <Image style={styles.image} source={{ uri: uri }} />
                 </TouchableHighlight>
-                <TouchableHighlight style={styles.dot}>
+                <TouchableHighlight 
+                    style={styles.dot}
+                    underlayColor='transparent'
+                    onPress={() => this.props.navigation.navigate('ImageBrowser')}
+                    >
                     <Text>x</Text>
                 </TouchableHighlight>
             </View>
@@ -142,7 +149,7 @@ let styles = RkStyleSheet.create(theme => ({
         flexWrap: 'wrap',
         width: '100%',
         height: 100,
-
+        backgroundColor: theme.colors.screen.background,
     },
 
     image: {

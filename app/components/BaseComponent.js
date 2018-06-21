@@ -17,36 +17,6 @@ export default class BaseComponent extends Component {
         header: null,
     };
 
-    ip = 'http://192.168.239.148:8080'
-
-    post = (url, form) => {
-        return fetch(url, { method: 'POST', body: form})
-                    .then((response) => (response.json()))
-                    .catch((error) => { console.error(error); });
-    }
-
-    phoneNumber = '';
-
-    username = '';
-
-    password = '';
-
-    repassword = '';
-
-    onPhoneNumberChanged = (newPhoneNumber) => {
-        this.phoneNumber = newPhoneNumber;
-    };
-
-    onUsernameChanged = (newUsername) => {
-        this.username = newUsername;
-    };
     
-    onPasswordChanged = (newPassword) => {
-        this.password = newPassword;
-    };
-
-    onRepasswordChanged = (newRepassword) => {
-        this.repassword = newRepassword;
-    };
 
 }

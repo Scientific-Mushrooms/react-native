@@ -32,7 +32,7 @@ export class Profile extends React.Component {
                 
                 <ScrollView  style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
-                    <InfoBar name={this.props.name}/>
+                    <InfoBar user={this.props.user}/>
 
                     <View style={styles.buttonGroupA}>
                         <IconButton title='Settings' onPress={()=>this.props.navigation.navigate('Settings')} icon={FontAwesome.cog}/>

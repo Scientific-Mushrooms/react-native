@@ -85,6 +85,7 @@ export class ConfessWall extends React.Component {
         super(props);
         this.data = articles;
         this.renderItem = this._renderItem.bind(this);
+        this.renderHeader = this._renderHeader.bind(this);
     }
 
     _keyExtractor(post, index) {
@@ -121,11 +122,17 @@ export class ConfessWall extends React.Component {
     _renderHeader() {
         return (
             <View style={styles.header}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => this.props.navigation.navigate('ConfessWrite')}
+                    >
                     <RkText rkType='awesome icon'>{FontAwesome.paintBrush}   </RkText>
                     <RkText>表白墙</RkText>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => this.props.navigation.navigate('ConfessWrite')}
+                    >
                     <RkText rkType='awesome icon'>{FontAwesome.paw}   </RkText>
                     <RkText>匿名墙</RkText>
                 </TouchableOpacity >
@@ -140,7 +147,7 @@ export class ConfessWall extends React.Component {
                 renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.container}
-                ListHeaderComponent={this._renderHeader}
+                ListHeaderComponent={this.renderHeader}
                 />
         )
     }

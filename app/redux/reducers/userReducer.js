@@ -3,7 +3,7 @@ export default user = (state = {}, action) => {
     switch (action.type) {
 
         case 'LOGIN':
-            return { ...state, name: action.name };
+            return { ...state, info: action.info };
 
         case 'LOGOUT':
             return { ...state, name: null };
