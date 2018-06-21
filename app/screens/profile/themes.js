@@ -14,7 +14,7 @@ import {
 import {DarkKittenTheme} from '../../config/darkTheme';
 import {KittenTheme} from '../../config/theme';
 import {GradientButton} from '../../components/gradientButton';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import {scale, scaleVertical} from '../../utils/scale';
 
 export class Themes extends React.Component {
   static navigationOptions = {

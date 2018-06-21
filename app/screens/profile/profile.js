@@ -3,11 +3,11 @@ import {
     View, 
     StyleSheet, 
     ScrollView,
-    Text } from 'react-native';
+} from 'react-native';
 
 import IconButton from 'IconButton';
 import InfoBar from 'InfoBar';
-import Header from 'Header';
+
 
 import {
     RkButton,
@@ -15,16 +15,12 @@ import {
 } from 'react-native-ui-kitten';
 import { FontAwesome } from '../../assets/icons';
 
-export class Profile extends React.Component {
+export class Profile extends Component {
 
     static navigationOptions = {
         title: 'Profile'
     };
 
-    toLoginPage = () => {
-        this.props.navigation.navigate('Login')
-        alert()
-    }
 
     render() {
         return (
@@ -36,16 +32,16 @@ export class Profile extends React.Component {
 
                     <View style={styles.buttonGroupA}>
                         <IconButton title='Settings' onPress={()=>this.props.navigation.navigate('Settings')} icon={FontAwesome.cog}/>
-                        <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
+                        <IconButton title='Themes' onPress={() => this.props.navigation.navigate('Themes')} icon={FontAwesome.cog} />
                         <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
                         <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
                     </View>
 
                     <View style={styles.buttonGroupA}>
-                        <IconButton title='Setting' onPress={this.toLoginPage} icon={FontAwesome.right} />
-                        <IconButton title='Message' onPress={this.toLoginPage} icon={FontAwesome.right} />
-                        <IconButton title='233333' onPress={this.toLoginPage} icon={FontAwesome.right} />
-                        <IconButton title='233333' onPress={this.toLoginPage} icon={FontAwesome.right} />
+                        <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
+                        <IconButton title='Themes' onPress={() => this.props.navigation.navigate('Themes')} icon={FontAwesome.cog} />
+                        <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
+                        <IconButton title='Settings' onPress={() => this.props.navigation.navigate('Settings')} icon={FontAwesome.cog} />
                     </View>
 
                 </ScrollView>

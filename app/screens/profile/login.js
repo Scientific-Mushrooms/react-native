@@ -146,7 +146,7 @@ let styles = RkStyleSheet.create(theme => ({
         padding: scaleVertical(16),
         flex: 1,
         justifyContent: 'space-between',
-        backgroundColor: theme.colors.screen.base
+        backgroundColor: theme.colors.screen.background
     },
 
     image: {

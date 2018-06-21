@@ -1,16 +1,13 @@
 import React from 'react';
 import {
-    StyleSheet,
-    Text,
     View,
     CameraRoll,
     FlatList,
     Dimensions,
-    Button,
     TouchableHighlight,
     Image
 } from 'react-native';
-import { RkText, RkButton, RkStyleSheet } from 'react-native-ui-kitten';
+import { RkText, RkStyleSheet } from 'react-native-ui-kitten';
 import { UIConstants } from '../../config/appConstants';
 
 const { width } = Dimensions.get('window')

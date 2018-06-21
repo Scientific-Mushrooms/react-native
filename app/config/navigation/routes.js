@@ -24,9 +24,6 @@ export const MainRoutes = [
                 screen: connect(mapStateToProps)(Screens.ImageBrowser),
                 children: []
             },
-        
-
-           
         ]
     },
 
@@ -66,24 +63,6 @@ export const MainRoutes = [
         icon: FontAwesome.envelope,
         screen: Screens.HomeScreen,
         children: [
-            {
-                id: 'Articles1',
-                title: 'Article List V1',
-                screen: Screens.Articles1,
-                children: []
-            },
-            {
-                id: 'Articles2',
-                title: 'Article List V2',
-                screen: Screens.Articles2,
-                children: []
-            },
-            {
-                id: 'Profile',
-                title: 'Article List V2',
-                screen: Screens.Profile,
-                children: []
-            },
         ]
     },
 
@@ -111,6 +90,13 @@ export const MainRoutes = [
                 id: 'Settings',
                 title: 'Settings',
                 screen: Screens.Settings,
+                children: []
+            },
+
+            {
+                id: 'Themes',
+                title: 'Themes',
+                screen: Screens.Themes,
                 children: []
             },
 
