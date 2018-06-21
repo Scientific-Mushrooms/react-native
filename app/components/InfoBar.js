@@ -14,9 +14,9 @@ import { RkText } from 'react-native-ui-kitten';
 
 class InfoBar extends Component {
 
-    toLoginPage = () => {
-        this.props.navigation.navigate('Login')
-    }
+    
+
+    ip = 'http://localhost:8080'
 
     render() {
 
@@ -26,7 +26,7 @@ class InfoBar extends Component {
                 <View style={styles.container}>
                     <Text style={styles.intro}>一航战，出击！</Text>
                     <Text style={styles.intro}>喵喵喵？？？</Text>
-                    <TouchableOpacity style={styles.button} onPress={this.toLoginPage}>
+                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Login')}>
                         <Text>LOGIN</Text>
                     </TouchableOpacity>
                 </View>
@@ -36,9 +36,9 @@ class InfoBar extends Component {
             return (
 
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.topContainer} onPress={this.toLoginPage}> 
-                        <Image source={require('../images/avatars/test.png')} style={styles.avatar}/>
-                        <Text style={styles.name}>{this.props.user.username}</Text>
+                    <TouchableOpacity style={styles.topContainer} onPress={() => this.props.navigation.navigate('ProfileSettings')}> 
+                        <Image source={{ uri: this.ip + '/api/image/' + this.props.user.avatar}} style={styles.avatar}/>
+                        <Text style={styles.name}>{this.props.user.name}</Text>
                         <RkText rkType='awesome hero' style={styles.arrow} >{FontAwesome.right}</RkText>
                     </TouchableOpacity>
     

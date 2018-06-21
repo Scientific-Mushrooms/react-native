@@ -58,11 +58,17 @@ export const MainRoutes = [
     },
 
     {
-        id: 'OtherMenu',
-        title: 'Message',
+        id: 'ChatList',
+        title: 'Chat List',
         icon: FontAwesome.envelope,
-        screen: Screens.HomeScreen,
+        screen: Screens.ChatList,
         children: [
+            {
+                id: 'Chat',
+                title: 'Chat',
+                screen: Screens.Chat,
+                children: []
+            },
         ]
     },
 
@@ -90,6 +96,13 @@ export const MainRoutes = [
                 id: 'Settings',
                 title: 'Settings',
                 screen: Screens.Settings,
+                children: []
+            },
+
+            {
+                id: 'ProfileSettings',
+                title: 'Profile Settings',
+                screen: Screens.ProfileSettings,
                 children: []
             },
 

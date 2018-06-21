@@ -36,7 +36,7 @@ export class Login extends React.Component {
             alert('can not be empty');
         } else {
             let form = new FormData();
-            form.append("phoneNumber", this.account);
+            form.append("email", this.account);
             form.append("password", this.password);
 
             this.post(this.ip + '/api/user/login', form).then((result) => {
@@ -59,9 +59,7 @@ export class Login extends React.Component {
     }
 
     account = '';
-
-    username = '';
-
+    password = '';
 
     onAccountChanged = (newAccount) => {
         this.account = newAccount;
@@ -97,12 +95,14 @@ export class Login extends React.Component {
 
                         <RkTextInput 
                             rkType='rounded' 
-                            placeholder='username' 
+                            placeholder='email' 
                             onChangeText={this.onAccountChanged}
-                            />
+                            autoCapitalize='none' 
+                            autoCorrect={false}
+                        />
                         <RkTextInput 
                             rkType='rounded' 
-                            placeholder='Password' 
+                            placeholder='password' 
                             secureTextEntry={true}
                             onChangeText={this.onPasswordChanged} />
 

@@ -26,6 +26,34 @@ export class SignUp extends React.Component {
       super(props);
     }
 
+    signup = () => {
+
+        if (this.password != this.repassword) {
+            alert("different password");
+
+        } else if (this.password == '' || this.phoneNumber == '') {
+            alert("can not be empty");
+
+        } else {
+            let form = new FormData();
+            form.append("phoneNumber", this.phoneNumber);
+            form.append("password", this.password);
+            form.append("username", this.username);
+
+            this.post(this.ip + '/signup', form).then((result) => {
+
+                if (result.status == 'fail') {
+                    alert(result.description);
+
+                } else {
+                    this.props.dispatch(login(this.username));
+                    this.props.navigation.navigate('Home');
+                }
+            })
+        }
+
+    };
+
     render() {
         let renderIcon = () => {
           if (RkTheme.current.name === 'light')

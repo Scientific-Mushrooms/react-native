@@ -7,3 +7,4 @@ export * from './common';
 export * from './profile';
 export * from './home';
 export * from './widgets';
+export * from './message';
