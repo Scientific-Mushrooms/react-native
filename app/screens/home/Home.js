@@ -38,6 +38,34 @@ export class HomeScreen extends Component {
         )
     }
 
+    ip = 'http://localhost:8080'
+
+    _lget = () => {
+
+        
+            let form = new FormData();
+        form.append("date", JSON.stringify(new Date()));
+            console.log(JSON.stringify(form))
+
+                this.post(this.ip + '/api/confessPost/get', form).then((result) => {
+                alert(JSON.stringify(result));
+                // if (result.status == 'fail') {
+                //     alert(result.description);
+
+                // } else {
+                //     this.props.dispatch(login(result.detail));
+                //     this.props.navigation.navigate('Profile');
+                // }
+            })
+        
+    };
+
+    post = (url, form) => {
+        return fetch(url, { method: 'POST', body: form })
+            .then((response) => (response.json()))
+            .catch((error) => { console.error(error); });
+    }
+
     date = new Date();
 
     render() {
@@ -45,11 +73,13 @@ export class HomeScreen extends Component {
         return (
             <View style={styles.mainContainer}>
                 <Text>{JSON.stringify(this.props.photos)}</Text>
-                <Text>{JSON.stringify(new Date())}</Text>
 
                 <Button
                     title="gggggggg"
                     onPress={() => this.setState({ modalVisible: true })} />
+                <Button
+                    title="confess"
+                    onPress={this._lget} />
 
 
                 <Modal visible={this.state.modalVisible}
