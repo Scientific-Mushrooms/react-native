@@ -37,7 +37,7 @@ class InfoBar extends Component {
 
                 <View style={styles.container}>
                     <TouchableOpacity style={styles.topContainer} onPress={() => this.props.navigation.navigate('ProfileSettings')}> 
-                        <Image source={{ uri: this.ip + '/api/image/' + this.props.user.avatar}} style={styles.avatar}/>
+                        <Image source={{ uri: this.ip + '/api/images/' + this.props.user.avatar}} style={styles.avatar}/>
                         <Text style={styles.name}>{this.props.user.name}</Text>
                         <RkText rkType='awesome hero' style={styles.arrow} >{FontAwesome.right}</RkText>
                     </TouchableOpacity>

@@ -38,11 +38,14 @@ export class HomeScreen extends Component {
         )
     }
 
+    date = new Date();
+
     render() {
 
         return (
             <View style={styles.mainContainer}>
                 <Text>{JSON.stringify(this.props.photos)}</Text>
+                <Text>{JSON.stringify(new Date())}</Text>
 
                 <Button
                     title="gggggggg"

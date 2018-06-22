@@ -9,16 +9,16 @@ import {
     RkText,
     RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import { FontAwesome } from '../../assets/icons';
-import { Gallery } from '../../components/gallery';
+import {SocialBar} from '../../../components';
+import { FontAwesome } from '../../../assets/icons';
+import { Gallery } from '../../../components/gallery';
 
 let moment = require('moment');
 
 const articles = [{
     'id': 3,
-    'avatar': require('../../data/img/photo1.png'),
-    'photo': require('../../data/img/photo1.png'),
+    'avatar': require('../../../data/img/photo1.png'),
+    'photo': require('../../../data/img/photo1.png'),
     'type': 'article',
     'time': -300,
     'author': 'Clavier',
@@ -58,7 +58,7 @@ const articles = [{
     }]
 }, {
     'id': 2,
-        'photo': require('../../data/img/photo2.png'),
+        'photo': require('../../../data/img/photo2.png'),
     'type': 'article',
     'time': -1373,
     'header': 'Balloon Trip',

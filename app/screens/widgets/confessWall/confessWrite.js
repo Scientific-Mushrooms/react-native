@@ -11,8 +11,8 @@ import {
     RkText,
     RkStyleSheet,
 } from 'react-native-ui-kitten';
-import { data } from '../../data';
-import { UIConstants } from '../../config/appConstants';
+import { data } from '../../../data';
+import { UIConstants } from '../../../config/appConstants';
 const { width } = Dimensions.get('window')
 
 

@@ -10,9 +10,9 @@ import {
   RkText,
   RkStyleSheet
 } from 'react-native-ui-kitten';
-import {data} from '../../data';
-import {Avatar} from '../../components';
-import {SocialBar} from '../../components';
+import {data} from '../../../data';
+import {Avatar} from '../../../components';
+import {SocialBar} from '../../../components';
 let moment = require('moment');
 
 
