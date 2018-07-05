@@ -28,7 +28,7 @@ export class Login extends React.Component {
         super(props);
     }
 
-    ip = 'http://192.168.1.140:8080'
+    ip = 'http://192.168.239.102:8080'
 
     _login = () => {
 
