@@ -1,0 +1,51 @@
+{
+  "name": "kittenTricks",
+  "version": "1.0.9",
+  "private": true,
+  "author": "akveo",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest"
+  },
+  "dependencies": {
+    "expo": "^27.0.0",
+    "expo-analytics": "1.0.6",
+    "hoist-non-react-statics": "2.3.1",
+    "lodash": "4.17.4",
+    "moment": "2.20.1",
+    "prop-types": "15.6.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react-native-elements": "^0.19.1",
+    "react-native-image-crop-picker": "^0.20.3",
+    "react-native-image-zoom-viewer": "^2.2.5",
+    "react-native-keyboard-spacer": "0.4.1",
+    "react-native-lightbox": "^0.7.0",
+    "react-native-linear-gradient": "2.4.0",
+    "react-native-photo-browser": "^0.4.0",
+    "react-native-progress-bar": "0.1.2",
+    "react-native-svg": "^6.3.1",
+    "react-native-swiper": "^1.5.13",
+    "react-native-switch-pro": "0.4.6",
+    "react-native-ui-kitten": "3.0.0",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "1.5.11",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "victory-native": "0.15.0"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "16.0.0-alpha.6",
+    "react-native-scripts": "1.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "main": "./app/app.js"
+}
