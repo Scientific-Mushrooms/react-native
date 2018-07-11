@@ -53,6 +53,21 @@ export const MainRoutes = [
                     },
                 ]
             },
+            {
+                id: 'ClassList',
+                title: 'ClassList',
+                icon: FontAwesome.book,
+                screen: Screens.ClassList,
+                children: [
+                    {
+                        id: 'Class',
+                        title: 'Class',
+                        screen: Screens.ConfessPost,
+                        children: []
+                    },
+
+                ]
+            },
             
         ]
     },

@@ -15,6 +15,8 @@ import { Gallery } from '../../../components/gallery';
 
 let moment = require('moment');
 
+const classes = [{ key: 1103, name: "CS", prof: "Dan", 'avatar': require('../../../data/img/photo1.png'), intro: "you will drop"}]
+
 const articles = [{
     'id': 3,
     'avatar': require('../../../data/img/photo1.png'),
@@ -85,7 +87,6 @@ export class ClassList extends React.Component {
         super(props);
         this.data = articles;
         this.renderItem = this._renderItem.bind(this);
-        this.renderHeader = this._renderHeader.bind(this);
     }
 
     _keyExtractor(post, index) {
@@ -110,33 +111,11 @@ export class ClassList extends React.Component {
 
 
                     <RkText rkType='primary3 bigLine' style={styles.text}>{info.item.text}</RkText>
-                    <Gallery items={[info.item.photo]} />
                     <View style={styles.footer} rkCardFooter>
                         <SocialBar />
                     </View >
                 </RkCard>
             </TouchableOpacity>
-        )
-    }
-
-    _renderHeader() {
-        return (
-            <View style={styles.header}>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.navigation.navigate('ConfessWrite')}
-                >
-                    <RkText rkType='awesome icon'>{FontAwesome.paintBrush}   </RkText>
-                    <RkText>表白墙</RkText>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.navigation.navigate('ConfessWrite')}
-                >
-                    <RkText rkType='awesome icon'>{FontAwesome.paw}   </RkText>
-                    <RkText>匿名墙</RkText>
-                </TouchableOpacity >
-            </View>
         )
     }
 
@@ -147,7 +126,6 @@ export class ClassList extends React.Component {
                 renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.container}
-                ListHeaderComponent={this.renderHeader}
             />
         )
     }
